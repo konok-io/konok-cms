@@ -55,23 +55,6 @@ class DashboardController extends Controller
             ->take(6)
             ->get();
 
-        // Page views chart (last 7 days)
-        $pageViewsChart = Visitor::select(
-                DB::raw('DATE(visited_date) as date'),
-                DB::raw('SUM(page_views) as total')
-            )
-            ->where('visited_date', '>=', now()->subDays(6)->toDateString())
-            ->groupBy('date')
-            ->orderBy('date')
-            ->get();
-
-        // Device breakdown
-        $deviceStats = Visitor::select('device', DB::raw('COUNT(*) as total'))
-            ->groupBy('device')
-            ->orderByDesc('total')
-            ->take(4)
-            ->get();
-
         $license = $this->licenseInfo();
 
         return view('admin.dashboard.index', compact(
@@ -81,8 +64,6 @@ class DashboardController extends Controller
             'recentBlogs',
             'visitorChart',
             'browserStats',
-            'pageViewsChart',
-            'deviceStats',
             'license'
         ));
     }
