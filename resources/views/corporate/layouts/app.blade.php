@@ -183,8 +183,8 @@
                         <span><i class="fas fa-envelope"></i> {{ $siteSetting->email ?? 'info@konok.io' }}</span>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="top-bar-right d-inline-flex align-items-center gap-3">
+                <div class="col-lg-6 col-md-6 text-lg-end">
+                    <div class="d-inline-flex align-items-center gap-3">
                         <div class="social-links-top">
                             @php
                                 try {
