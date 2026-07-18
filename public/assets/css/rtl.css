@@ -97,7 +97,7 @@
 
 /* Admin Main Content */
 [dir="rtl"] .admin-main {
-    margin-right: 260px;
+    margin-right: 0;
     margin-left: 0;
 }
 
