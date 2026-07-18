@@ -239,12 +239,45 @@ img {
     color: var(--primary-color);
 }
 
+/* Dropdown Fix - Hover Gap Issue */
+.corporate-header .nav-item.dropdown {
+    position: static;
+}
+
+.corporate-header .navbar-nav .dropdown {
+    position: relative;
+}
+
 .corporate-header .navbar-nav .dropdown-menu {
     border: none;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     padding: 12px;
-    margin-top: 8px;
+    margin-top: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    min-width: 220px;
+}
+
+/* Fill the gap between nav-link and dropdown */
+.corporate-header .navbar-nav .nav-item.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
+.corporate-header .navbar-nav .dropdown:hover > .dropdown-menu,
+.corporate-header .navbar-nav .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .corporate-header .navbar-nav .dropdown-item {
