@@ -113,6 +113,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     // Industries
     Route::get('/industries', [\App\Http\Controllers\Admin\CorporateController::class, 'industriesIndex'])->name('industries.index');
     Route::post('/industries', [\App\Http\Controllers\Admin\CorporateController::class, 'industryStore'])->name('industries.store');
+    Route::put('/industries/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'industryUpdate'])->name('industries.update');
     Route::delete('/industries/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'industryDestroy'])->name('industries.destroy');
 
     // Solutions

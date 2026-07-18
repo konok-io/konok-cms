@@ -182,6 +182,28 @@ class CorporateController extends Controller
         return redirect()->back()->with('success', 'Industry created successfully!');
     }
 
+    public function industryUpdate(Request $request, $id)
+    {
+        $industry = Industry::findOrFail($id);
+        
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string',
+            'description' => 'nullable|string',
+            'icon' => 'nullable|string',
+            'image' => 'nullable|string',
+            'order' => 'integer',
+            'is_active' => 'boolean',
+        ]);
+
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
+
+        $industry->update($data);
+        return redirect()->back()->with('success', 'Industry updated successfully!');
+    }
+
     public function industryDestroy($id)
     {
         Industry::findOrFail($id)->delete();
