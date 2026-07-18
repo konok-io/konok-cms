@@ -1,101 +1,135 @@
 /**
  * KONOK - Corporate Website Styles
- * Unique Design System - Rarely Used Colors
+ * Apple Dark Mode Inspired Design System
  */
 
 /* ============================================
-   CSS Variables - Ultra Unique Color Palette
-   Inspired by: Luxury, Nature, Earth, Cosmos
+   CSS Variables - Apple Dark Mode Color Palette
+   Inspired by: Apple Dark Mode, MacOS, iOS Dark Mode
    ============================================ */
 :root {
-    /* Primary Colors - Deep Terracotta & Burgundy */
-    --primary-color: #8B4513;
-    --primary-dark: #5D2E0C;
-    --primary-light: #CD853F;
-    --primary-hover: #A0522D;
+    /* Primary Colors - Apple Dark Blue */
+    --primary-color: #0A84FF;
+    --primary-dark: #0066CC;
+    --primary-light: #409CFF;
+    --primary-hover: #0A84FF;
     
-    /* Secondary Colors - Deep Ocean */
-    --secondary-color: #0F3D3E;
-    --secondary-dark: #092A2A;
-    --secondary-light: #1A5F61;
+    /* Secondary Colors - Apple Dark */
+    --secondary-color: #1C1C1E;
+    --secondary-dark: #000000;
+    --secondary-light: #2C2C2E;
     
-    /* Accent Colors - Golden Sand */
-    --accent-color: #D4A574;
-    --accent-dark: #C4956A;
-    --accent-light: #E8C9A0;
+    /* Accent Colors - Apple Purple */
+    --accent-color: #BF5AF2;
+    --accent-dark: #9B59B6;
+    --accent-light: #D4A5F9;
     
-    /* Background Colors - Warm Neutrals */
-    --bg-primary: #FEFCF8;
-    --bg-secondary: #F5F0E8;
-    --bg-tertiary: #EDE5D8;
-    --bg-card: #FFFFFF;
-    --bg-dark: #1A1512;
+    /* Tertiary Colors - Apple Variants */
+    --tertiary-color: #64D2FF;
+    --tertiary-dark: #30B0C7;
+    --tertiary-light: #8FE0FF;
     
-    /* Gradient Colors - Sunset & Ocean */
-    --gradient-primary: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
-    --gradient-accent: linear-gradient(135deg, #0F3D3E 0%, #1A5F61 100%);
-    --gradient-dark: linear-gradient(180deg, #1A1512 0%, #2D2420 100%);
-    --gradient-hero: linear-gradient(135deg, #0F3D3E 0%, #1A5F61 50%, #8B4513 100%);
-    --gradient-warm: linear-gradient(135deg, #D4A574 0%, #E8C9A0 100%);
-    --gradient-sunset: linear-gradient(135deg, #8B4513 0%, #D4A574 50%, #0F3D3E 100%);
+    /* Pink Accent */
+    --pink-color: #FF375F;
+    --pink-light: #FF6B8A;
     
-    /* Neutral Colors - Warm Earth Tones */
-    --dark-color: #1A1512;
-    --gray-900: #1A1512;
-    --gray-800: #2D2420;
-    --gray-700: #4A3F35;
-    --gray-600: #6B5D4D;
-    --gray-500: #8B7B68;
-    --gray-400: #A99B88;
-    --gray-300: #C4B8A5;
-    --gray-200: #DDD3C5;
-    --gray-100: #EDE5D8;
-    --gray-50: #FEFCF8;
+    /* Orange Accent */
+    --orange-color: #FF9F0A;
+    --orange-light: #FFBF40;
+    
+    /* Green Accent */
+    --green-color: #30D158;
+    --green-light: #5DE67A;
+    
+    /* Yellow Accent */
+    --yellow-color: #FFD60A;
+    --yellow-light: #FFE34D;
+    
+    /* Red Accent */
+    --red-color: #FF453A;
+    --red-light: #FF6B60;
+    
+    /* Background Colors - Apple Dark Mode */
+    --bg-primary: #000000;
+    --bg-secondary: #1C1C1E;
+    --bg-tertiary: #2C2C2E;
+    --bg-card: #1C1C1E;
+    --bg-dark: #000000;
+    --bg-elevated: #2C2C2E;
+    
+    /* Gradient Colors - Apple Style */
+    --gradient-primary: linear-gradient(135deg, #0A84FF 0%, #409CFF 100%);
+    --gradient-accent: linear-gradient(135deg, #BF5AF2 0%, #D4A5F9 100%);
+    --gradient-tertiary: linear-gradient(135deg, #64D2FF 0%, #8FE0FF 100%);
+    --gradient-dark: linear-gradient(180deg, #1C1C1E 0%, #2C2C2E 100%);
+    --gradient-hero: linear-gradient(135deg, #000000 0%, #1C1C1E 50%, #0A84FF 100%);
+    --gradient-glow: linear-gradient(135deg, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.2) 100%);
+    
+    /* Neutral Colors - Apple Dark Grays */
+    --dark-color: #FFFFFF;
+    --gray-900: #F5F5F7;
+    --gray-800: #E5E5EA;
+    --gray-700: #C7C7CC;
+    --gray-600: #AEAEB2;
+    --gray-500: #8E8E93;
+    --gray-400: #636366;
+    --gray-300: #48484A;
+    --gray-200: #3A3A3C;
+    --gray-100: #2C2C2E;
+    --gray-50: #1C1C1E;
     --light-color: #FFFFFF;
     
-    /* Status Colors - Nature Inspired */
-    --success-color: #2D5A27;
-    --success-bg: rgba(45, 90, 39, 0.12);
-    --warning-color: #B8860B;
-    --warning-bg: rgba(184, 134, 11, 0.12);
-    --danger-color: #8B0000;
-    --danger-bg: rgba(139, 0, 0, 0.12);
-    --info-color: #0F3D3E;
-    --info-bg: rgba(15, 61, 62, 0.12);
+    /* Text Colors */
+    --text-primary: #FFFFFF;
+    --text-secondary: #EBEBF5;
+    --text-tertiary: #8E8E93;
+    --text-quaternary: #636366;
+    
+    /* Status Colors - Apple Dark Mode */
+    --success-color: #30D158;
+    --success-bg: rgba(48, 209, 88, 0.15);
+    --warning-color: #FFD60A;
+    --warning-bg: rgba(255, 214, 10, 0.15);
+    --danger-color: #FF453A;
+    --danger-bg: rgba(255, 69, 58, 0.15);
+    --info-color: #64D2FF;
+    --info-bg: rgba(100, 210, 255, 0.15);
     
     /* Typography */
-    --font-primary: 'Plus Jakarta Sans', 'Playfair Display', Georgia, serif;
-    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
     
     /* Spacing */
-    --section-padding: 120px;
-    --section-padding-sm: 80px;
+    --section-padding: 100px;
+    --section-padding-sm: 60px;
     
-    /* Border Radius - Elegant */
-    --radius-sm: 12px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-xl: 32px;
-    --radius-2xl: 48px;
+    /* Border Radius - Apple Style */
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-2xl: 36px;
     
-    /* Shadows - Soft & Warm */
-    --shadow-sm: 0 2px 8px rgba(26, 21, 18, 0.06);
-    --shadow-md: 0 8px 24px rgba(26, 21, 18, 0.08);
-    --shadow-lg: 0 16px 48px rgba(26, 21, 18, 0.1);
-    --shadow-xl: 0 24px 64px rgba(26, 21, 18, 0.12);
-    --shadow-2xl: 0 40px 80px rgba(26, 21, 18, 0.16);
-    --shadow-primary: 0 12px 40px rgba(139, 69, 19, 0.25);
-    --shadow-accent: 0 12px 40px rgba(15, 61, 62, 0.25);
-    --shadow-elevated: 0 20px 60px rgba(26, 21, 18, 0.15);
+    /* Shadows - Apple Dark Mode Style */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.7);
+    --shadow-2xl: 0 40px 80px rgba(0, 0, 0, 0.8);
+    --shadow-primary: 0 8px 32px rgba(10, 132, 255, 0.4);
+    --shadow-accent: 0 8px 32px rgba(191, 90, 242, 0.4);
+    --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(10, 132, 255, 0.3);
+    --shadow-glow-accent: 0 0 40px rgba(191, 90, 242, 0.3);
     
-    /* Transitions - Smooth */
-    --transition-fast: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transitions - Smooth Apple */
+    --transition-fast: 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-base: 350ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* ============================================
-   Base Styles
+   Base Styles - Apple Dark Mode
    ============================================ */
 * {
     margin: 0;
@@ -114,13 +148,15 @@ body {
     color: var(--gray-600);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
     line-height: 1.2;
-    color: var(--dark-color);
+    color: var(--text-primary);
 }
 
 h1 { font-size: 3.75rem; font-weight: 800; }
@@ -133,6 +169,16 @@ h6 { font-size: 1rem; font-weight: 600; }
 p {
     margin-bottom: 1rem;
     color: var(--gray-600);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-light);
 }
 
 a {
@@ -170,7 +216,7 @@ img {
 
 .section-title .subtitle {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -181,7 +227,7 @@ img {
 .section-title h2 {
     font-size: 2.5rem;
     margin-bottom: 16px;
-    color: var(--dark-color);
+    color: var(--text-primary);
 }
 
 .section-title p {
@@ -193,11 +239,12 @@ img {
 }
 
 /* ============================================
-   Top Bar - Clean Microsoft Style
+   Top Bar - Apple Dark Mode Style
    ============================================ */
 .top-bar {
-    background: var(--bg-dark);
-    color: var(--gray-400);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-500);
     padding: 10px 0;
     font-size: 0.8125rem;
 }
@@ -208,7 +255,7 @@ img {
 
 .top-bar-left i {
     margin-right: 6px;
-    color: var(--accent-color);
+    color: var(--tertiary-color);
 }
 
 .top-bar-right {
@@ -216,7 +263,7 @@ img {
 }
 
 .social-links-top a {
-    color: var(--gray-400);
+    color: var(--gray-500);
     margin-left: 12px;
     transition: var(--transition-fast);
     width: 28px;
@@ -228,30 +275,32 @@ img {
 }
 
 .social-links-top a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 /* ============================================
-   Corporate Header / Navbar - Unique Elegant Style
+   Corporate Header / Navbar - Apple Dark Mode
    ============================================ */
 .corporate-header {
-    background: var(--bg-primary);
+    background: rgba(28, 28, 30, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: var(--transition-base);
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .corporate-header .navbar {
-    padding: 16px 0;
+    padding: 14px 0;
 }
 
 .corporate-header .navbar-brand {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 1.6rem;
-    color: var(--dark-color);
+    font-size: 1.5rem;
+    color: var(--text-primary);
 }
 
 .corporate-header .navbar-brand .brand-text {
@@ -264,9 +313,9 @@ img {
 .corporate-header .navbar-nav .nav-link {
     font-family: var(--font-primary);
     font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--gray-700);
-    padding: 10px 18px;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    padding: 8px 16px;
     transition: var(--transition-fast);
 }
 
@@ -332,25 +381,26 @@ img {
     color: var(--primary-color);
 }
 
-/* Primary Button - Unique Elegant Style */
+/* Primary Button - Apple Dark Mode Style */
 .btn-primary-corporate {
-    background: var(--gradient-primary);
+    background: var(--primary-color);
     color: var(--light-color);
     border: none;
-    padding: 14px 32px;
-    border-radius: var(--radius-lg);
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 0.9375rem;
     transition: var(--transition-base);
-    box-shadow: var(--shadow-primary);
+    box-shadow: 0 2px 8px rgba(10, 132, 255, 0.3);
     position: relative;
     overflow: hidden;
 }
 
 .btn-primary-corporate:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-elevated);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(10, 132, 255, 0.4);
     color: var(--light-color);
 }
 
@@ -385,7 +435,7 @@ img {
     right: -20%;
     width: 80%;
     height: 150%;
-    background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, rgba(139, 69, 19, 0.1) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(10, 132, 255, 0.2) 0%, rgba(191, 90, 242, 0.1) 50%, transparent 70%);
     animation: float 10s ease-in-out infinite;
 }
 
@@ -397,38 +447,38 @@ img {
 .hero-content {
     position: relative;
     z-index: 2;
-    color: var(--light-color);
+    color: var(--text-primary);
 }
 
 .hero-content .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(212, 165, 116, 0.2);
+    background: rgba(10, 132, 255, 0.15);
     backdrop-filter: blur(10px);
     padding: 10px 20px;
     border-radius: 30px;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 24px;
-    border: 1px solid rgba(212, 165, 116, 0.3);
-    color: var(--accent-light);
+    border: 1px solid rgba(10, 132, 255, 0.3);
+    color: var(--primary-light);
 }
 
 .hero-content .hero-badge i {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .hero-content h1 {
     font-size: 4rem;
     font-weight: 800;
-    color: var(--light-color);
+    color: var(--text-primary);
     margin-bottom: 24px;
     line-height: 1.15;
 }
 
 .hero-content .gradient-text {
-    background: var(--gradient-warm);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -436,7 +486,7 @@ img {
 
 .hero-content p {
     font-size: 1.25rem;
-    color: var(--gray-300);
+    color: var(--gray-500);
     margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.8;
@@ -1487,16 +1537,17 @@ img {
 }
 
 /* ============================================
-   Footer - Unique Elegant Style
+   Footer - Apple Dark Mode Style
    ============================================ */
 .corporate-footer {
-    background: var(--bg-dark);
-    color: var(--gray-400);
+    background: var(--bg-secondary);
+    color: var(--gray-500);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Newsletter Section */
 .newsletter-section {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     padding: 60px 0;
     position: relative;
     overflow: hidden;
