@@ -21,27 +21,12 @@
                         {{ $companyProfile->tagline ?? 'KEY OF NEXT ONLINE KNOWLEDGE - We empower businesses through cutting-edge technology solutions, helping you navigate the digital landscape with confidence.' }}
                     </p>
                     <div class="hero-buttons">
-                        <a href="{{ route('front.services') }}" class="btn btn-hero-primary">
+                        <a href="{{ route('front.services') }}" class="btn btn-primary-corporate">
                             Explore Services <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="{{ route('front.contact') }}" class="btn btn-hero-secondary">
-                            <i class="fas fa-play-circle me-2"></i> Contact Us
+                        <a href="{{ route('front.contact') }}" class="btn btn-outline-light rounded-pill px-4">
+                            <i class="fas fa-phone-alt me-2"></i> Contact Us
                         </a>
-                    </div>
-                    
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="number counter" data-count="500">0</div>
-                            <div class="label">Projects Completed</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="number counter" data-count="150">0</div>
-                            <div class="label">Happy Clients</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="number counter" data-count="50">0</div>
-                            <div class="label">Team Members</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +34,7 @@
                 <div class="hero-image text-center">
                     <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
                          alt="KONOK Digital Solutions" 
-                         class="img-fluid rounded-4 shadow-lg">
+                         class="img-fluid rounded-4 shadow-xl">
                 </div>
             </div>
         </div>
@@ -57,48 +42,45 @@
 </section>
 
 <!-- About Section -->
-<section class="about-section section-padding">
+<section class="about-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=450&fit=crop" 
                          alt="About KONOK" 
-                         class="img-fluid">
+                         class="img-fluid rounded-3 shadow-lg">
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                <div class="about-content">
-                    <span class="about-badge">About KONOK</span>
-                    <h2>Empowering Businesses Through Technology</h2>
-                    <p>
-                        {{ $companyProfile->description ?? 'KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation. With years of experience and a passion for innovation, we deliver exceptional results that drive growth and success.' }}
+                <div class="about-content ps-lg-4">
+                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: rgba(249, 115, 22, 0.1); color: var(--primary-color); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">
+                        <i class="fas fa-building"></i> About KONOK
+                    </span>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Empowering Businesses Through Technology</h2>
+                    <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
+                        {{ $companyProfile->description ?? 'KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation.' }}
                     </p>
-                    <p>
-                        Our team of experts combines deep technical knowledge with creative problem-solving to deliver solutions that truly make a difference. From web development to AI integration, we cover the entire spectrum of modern technology services.
-                    </p>
-                    
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>24/7 Support</span>
+                    <div class="about-features d-flex flex-wrap gap-3 mt-4">
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
+                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                            <span style="font-weight: 600; color: var(--dark-color);">24/7 Support</span>
                         </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Expert Team</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
+                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                            <span style="font-weight: 600; color: var(--dark-color);">Expert Team</span>
                         </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Quality Assured</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
+                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                            <span style="font-weight: 600; color: var(--dark-color);">Quality Assured</span>
                         </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>On-Time Delivery</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
+                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                            <span style="font-weight: 600; color: var(--dark-color);">On-Time Delivery</span>
                         </div>
                     </div>
-                    
                     <a href="{{ route('front.about') }}" class="btn btn-primary-corporate mt-4">
-                        Learn More About Us <i class="fas fa-arrow-right ms-2"></i>
+                        Learn More <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>
@@ -107,31 +89,35 @@
 </section>
 
 <!-- Vision & Mission Section -->
-<section class="section-padding" style="background: var(--gray-50);">
+<section class="section-padding" style="background: var(--bg-secondary);">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-4" data-aos="fade-up">
-                <div class="card h-100 border-0 shadow-sm">
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="card h-100 border-0 rounded-3" style="box-shadow: var(--shadow-lg); overflow: hidden;">
                     <div class="card-body p-5">
                         <div class="mb-4">
-                            <i class="fas fa-eye fa-3x text-primary"></i>
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-2" style="width: 70px; height: 70px; background: var(--gradient-primary);">
+                                <i class="fas fa-eye fa-2x text-white"></i>
+                            </span>
                         </div>
-                        <h3>Our Vision</h3>
-                        <p class="text-muted">
+                        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--dark-color);">Our Vision</h3>
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
                             {{ $companyProfile->vision ?? 'To be the most trusted technology partner for businesses worldwide, setting new standards of excellence in digital innovation and delivering solutions that shape the future.' }}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100 border-0 shadow-sm">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 border-0 rounded-3" style="box-shadow: var(--shadow-lg); overflow: hidden;">
                     <div class="card-body p-5">
                         <div class="mb-4">
-                            <i class="fas fa-bullseye fa-3x text-primary"></i>
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-2" style="width: 70px; height: 70px; background: var(--gradient-accent);">
+                                <i class="fas fa-bullseye fa-2x text-white"></i>
+                            </span>
                         </div>
-                        <h3>Our Mission</h3>
-                        <p class="text-muted">
-                            {{ $companyProfile->mission ?? 'To empower businesses with cutting-edge technology solutions that drive efficiency, growth, and competitive advantage while maintaining the highest standards of quality and customer satisfaction.' }}
+                        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--dark-color);">Our Mission</h3>
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
+                            {{ $companyProfile->mission ?? 'To empower businesses with cutting-edge technology solutions that drive efficiency, growth, and competitive advantage while maintaining the highest standards of quality.' }}
                         </p>
                     </div>
                 </div>
@@ -141,37 +127,41 @@
 </section>
 
 <!-- Services Section -->
-<section class="services-section section-padding">
+<section class="services-section section-padding" style="background: var(--light-color);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">What We Offer</span>
+            <span class="subtitle">
+                <i class="fas fa-cogs me-2"></i> What We Offer
+            </span>
             <h2>Our Services</h2>
-            <p>Comprehensive technology solutions tailored to meet your business needs and drive digital transformation.</p>
+            <p>Comprehensive technology solutions tailored to meet your business needs.</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             @php
                 $services = [
-                    ['icon' => 'fas fa-code', 'title' => 'Web Development', 'desc' => 'Custom web applications built with modern frameworks and best practices.'],
-                    ['icon' => 'fas fa-mobile-alt', 'title' => 'Mobile Apps', 'desc' => 'Native and cross-platform mobile applications for iOS and Android.'],
-                    ['icon' => 'fas fa-cloud', 'title' => 'Cloud Solutions', 'desc' => 'Scalable cloud infrastructure and migration services.'],
-                    ['icon' => 'fas fa-robot', 'title' => 'AI Integration', 'desc' => 'Smart AI-powered solutions to automate and enhance your business processes.'],
-                    ['icon' => 'fas fa-shield-alt', 'title' => 'Cyber Security', 'desc' => 'Comprehensive security solutions to protect your digital assets.'],
-                    ['icon' => 'fas fa-chart-line', 'title' => 'Data Analytics', 'desc' => 'Transform data into actionable insights with advanced analytics.'],
+                    ['icon' => 'fas fa-code', 'title' => 'Web Development', 'desc' => 'Custom web applications built with modern frameworks.'],
+                    ['icon' => 'fas fa-mobile-alt', 'title' => 'Mobile Apps', 'desc' => 'Native and cross-platform mobile applications.'],
+                    ['icon' => 'fas fa-cloud', 'title' => 'Cloud Solutions', 'desc' => 'Scalable cloud infrastructure and services.'],
+                    ['icon' => 'fas fa-robot', 'title' => 'AI Integration', 'desc' => 'Smart AI-powered solutions for automation.'],
                 ];
             @endphp
             
             @foreach($services as $index => $service)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="{{ $service['icon'] }}"></i>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                    <div class="service-card-v2 h-100">
+                        <div class="service-card-icon">
+                            <div class="icon-wrapper">
+                                <i class="{{ $service['icon'] }}"></i>
+                            </div>
                         </div>
-                        <h4>{{ $service['title'] }}</h4>
-                        <p>{{ $service['desc'] }}</p>
-                        <a href="{{ route('front.services') }}" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="service-card-content">
+                            <h4>{{ $service['title'] }}</h4>
+                            <p>{{ $service['desc'] }}</p>
+                            <a href="{{ route('front.services') }}" class="service-card-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -182,7 +172,7 @@
 <!-- Stats Section -->
 <section class="stats-section">
     <div class="container">
-        <div class="row">
+        <div class="row g-4">
             <div class="col-lg-3 col-md-6" data-aos="fade-up">
                 <div class="stat-item">
                     <div class="stat-icon">
@@ -224,15 +214,17 @@
 </section>
 
 <!-- Team Section -->
-<section class="team-section section-padding">
+<section class="team-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">Our People</span>
+            <span class="subtitle">
+                <i class="fas fa-users me-2"></i> Our People
+            </span>
             <h2>Meet Our Leadership</h2>
-            <p>Dedicated professionals committed to driving innovation and excellence in everything we do.</p>
+            <p>Dedicated professionals committed to driving innovation and excellence.</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             @php
                 $teamMembers = [
                     ['name' => 'Muhammad Rashed Hossain', 'title' => 'Founder & CEO', 'img' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face'],
@@ -243,7 +235,7 @@
             @endphp
             
             @foreach($teamMembers as $index => $member)
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                     <div class="team-card">
                         <div class="team-image">
                             <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}">
@@ -265,19 +257,21 @@
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials-section section-padding">
+<section class="testimonials-section section-padding" style="background: var(--light-color);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">Testimonials</span>
+            <span class="subtitle">
+                <i class="fas fa-quote-left me-2"></i> Testimonials
+            </span>
             <h2>What Our Clients Say</h2>
-            <p>Don't just take our word for it - hear what our clients have to say about working with us.</p>
+            <p>Hear what our clients have to say about working with us.</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             @php
                 $testimonials = [
                     [
-                        'content' => 'KONOK transformed our online presence completely. Their expertise in web development and dedication to quality exceeded our expectations. Highly recommended!',
+                        'content' => 'KONOK transformed our online presence completely. Their expertise in web development and dedication to quality exceeded our expectations.',
                         'name' => 'Ahmed Rahman',
                         'title' => 'CEO, TechStart Inc.',
                         'img' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face'
@@ -298,9 +292,9 @@
             @endphp
             
             @foreach($testimonials as $index => $testimonial)
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                    <div class="testimonial-card h-100">
+                        <div class="testimonial-rating" style="color: var(--warning-color);">
                             @for($i = 0; $i < 5; $i++)
                                 <i class="fas fa-star"></i>
                             @endfor
@@ -311,8 +305,8 @@
                         <div class="testimonial-author">
                             <img src="{{ $testimonial['img'] }}" alt="{{ $testimonial['name'] }}">
                             <div class="author-info">
-                                <h5>{{ $testimonial['name'] }}</h5>
-                                <span>{{ $testimonial['title'] }}</span>
+                                <h5 style="color: var(--dark-color);">{{ $testimonial['name'] }}</h5>
+                                <span style="color: var(--gray-500);">{{ $testimonial['title'] }}</span>
                             </div>
                         </div>
                     </div>
@@ -325,10 +319,10 @@
 <!-- CTA Section -->
 <section class="cta-section">
     <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
+        <div class="cta-content text-center" data-aos="zoom-in">
             <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how we can help you achieve your digital goals. Get in touch today for a free consultation.</p>
-            <a href="{{ route('front.contact') }}" class="btn btn-cta">
+            <p>Let's discuss how we can help you achieve your digital goals.</p>
+            <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate">
                 Start Your Project <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
