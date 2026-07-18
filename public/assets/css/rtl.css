@@ -96,9 +96,9 @@
 }
 
 /* Admin Main Content */
-[dir="rtl"] .admin-main {
-    margin-right: 260px;
-    margin-left: 0;
+[dir="rtl"] .admin-content {
+    margin-right: 0;
+    margin-left: var(--admin-sidebar-width);
 }
 
 /* Admin Topbar */
@@ -620,8 +620,8 @@
         transform: translateX(0);
     }
     
-    [dir="rtl"] .admin-main {
-        margin-right: 0;
+    [dir="rtl"] .admin-content {
+        margin-left: 0;
     }
 }
 
