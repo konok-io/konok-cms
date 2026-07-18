@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             VisitorSeeder::class,
             KnowledgeSeeder::class, // Knowledge Base
             SubscriberSeeder::class, // Newsletter Subscribers
+            IndustrySeeder::class, // Industries with full descriptions
         ]);
     }
 }
