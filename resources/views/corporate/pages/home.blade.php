@@ -63,19 +63,19 @@
                     </p>
                     <div class="about-features d-flex flex-wrap gap-3 mt-4">
                         <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
-                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <i class="fas fa-check-circle" style="color: #34C759;"></i>
                             <span style="font-weight: 500; color: var(--dark-color);">24/7 Support</span>
                         </div>
                         <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
-                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <i class="fas fa-check-circle" style="color: #34C759;"></i>
                             <span style="font-weight: 500; color: var(--dark-color);">Expert Team</span>
                         </div>
                         <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
-                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <i class="fas fa-check-circle" style="color: #34C759;"></i>
                             <span style="font-weight: 500; color: var(--dark-color);">Quality Assured</span>
                         </div>
                         <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
-                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <i class="fas fa-check-circle" style="color: #34C759;"></i>
                             <span style="font-weight: 500; color: var(--dark-color);">On-Time Delivery</span>
                         </div>
                     </div>
@@ -294,7 +294,7 @@
             @foreach($testimonials as $index => $testimonial)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                     <div class="testimonial-card h-100">
-                        <div class="testimonial-rating" style="color: var(--warning-color);">
+                        <div class="testimonial-rating" style="color: #FF9500;">
                             @for($i = 0; $i < 5; $i++)
                                 <i class="fas fa-star"></i>
                             @endfor
