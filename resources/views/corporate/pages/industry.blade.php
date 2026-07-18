@@ -39,19 +39,6 @@
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content text-center" data-aos="zoom-in">
-            <h2>Ready to Transform Your {!! $industry->name !!} Business?</h2>
-            <p>Let's discuss how we can help you leverage technology for your {!! $industry->name !!} operations.</p>
-            <a href="{{ route('front.contact') }}" class="btn btn-cta">
-                Get Started <i class="fas fa-arrow-right ms-2"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
 @else
 
 <!-- No Content State -->
@@ -143,43 +130,6 @@
         position: absolute;
         left: 0;
         color: var(--primary-color);
-    }
-    
-    .cta-section {
-        padding: 80px 0;
-        background: linear-gradient(135deg, var(--dark-color), #1a1a2e);
-    }
-    
-    .cta-content h2 {
-        color: white;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-    
-    .cta-content p {
-        color: rgba(255,255,255,0.8);
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-    
-    .btn-cta {
-        background: var(--primary-color);
-        color: white;
-        padding: 15px 40px;
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    .btn-cta:hover {
-        background: var(--secondary-color);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(10,132,255,0.3);
-        color: white;
     }
 </style>
 @endpush
