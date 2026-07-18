@@ -244,13 +244,14 @@ img {
 .top-bar {
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--gray-200);
-    color: var(--gray-600);
+    color: var(--gray-700);
     padding: 10px 0;
     font-size: 0.8125rem;
 }
 
 .top-bar-left span {
     margin-right: 24px;
+    color: var(--gray-700);
 }
 
 .top-bar-left i {
@@ -263,7 +264,7 @@ img {
 }
 
 .social-links-top a {
-    color: var(--gray-500);
+    color: var(--gray-600);
     margin-left: 12px;
     transition: var(--transition-fast);
     width: 28px;
