@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="about-content ps-lg-4">
-                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: rgba(249, 115, 22, 0.1); color: var(--primary-color); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">
+                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: rgba(0, 120, 212, 0.08); color: var(--primary-color); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1.5rem;">
                         <i class="fas fa-building"></i> About KONOK
                     </span>
                     <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Empowering Businesses Through Technology</h2>
@@ -62,21 +62,21 @@
                         {{ $companyProfile->description ?? 'KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation.' }}
                     </p>
                     <div class="about-features d-flex flex-wrap gap-3 mt-4">
-                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
-                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
-                            <span style="font-weight: 600; color: var(--dark-color);">24/7 Support</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <span style="font-weight: 500; color: var(--dark-color);">24/7 Support</span>
                         </div>
-                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
-                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
-                            <span style="font-weight: 600; color: var(--dark-color);">Expert Team</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <span style="font-weight: 500; color: var(--dark-color);">Expert Team</span>
                         </div>
-                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
-                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
-                            <span style="font-weight: 600; color: var(--dark-color);">Quality Assured</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <span style="font-weight: 500; color: var(--dark-color);">Quality Assured</span>
                         </div>
-                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-pill" style="background: var(--light-color); box-shadow: var(--shadow-sm);">
-                            <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
-                            <span style="font-weight: 600; color: var(--dark-color);">On-Time Delivery</span>
+                        <div class="about-feature d-flex align-items-center gap-2 px-3 py-2 rounded-1" style="background: var(--light-color); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <span style="font-weight: 500; color: var(--dark-color);">On-Time Delivery</span>
                         </div>
                     </div>
                     <a href="{{ route('front.about') }}" class="btn btn-primary-corporate mt-4">
