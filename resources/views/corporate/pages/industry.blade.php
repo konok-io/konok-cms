@@ -40,32 +40,6 @@
                     </div>
                 </div>
                 @endif
-                
-                <!-- Solutions for this industry -->
-                @if(isset($solutions) && $solutions->count() > 0)
-                <div class="mt-5">
-                    <h3 class="text-center mb-4" style="color: var(--dark-color);">
-                        <i class="fas fa-lightbulb me-2" style="color: var(--primary-color);"></i>
-                        Our Solutions for {!! $industry->name !!}
-                    </h3>
-                    <div class="row g-4">
-                        @foreach($solutions as $solution)
-                        <div class="col-md-6 col-lg-4">
-                            <div class="solution-item" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); height: 100%; transition: all 0.3s ease;">
-                                <div class="d-flex align-items-start">
-                                    <div class="solution-icon me-3" style="width: 50px; height: 50px; background: rgba(10,132,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                        <i class="{{ $solution->icon ?? 'fas fa-check' }}" style="color: var(--primary-color); font-size: 1.2rem;"></i>
-                                    </div>
-                                    <div>
-                                        <h5 style="margin: 0; color: var(--dark-color); font-weight: 600;">{!! $solution->title !!}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
             </div>
         </div>
     </div>
