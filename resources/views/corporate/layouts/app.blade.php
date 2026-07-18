@@ -184,7 +184,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <div class="top-bar-right">
+                    <div class="top-bar-right d-inline-flex align-items-center gap-3">
                         <div class="social-links-top">
                             @php
                                 try {
@@ -198,7 +198,7 @@
                             @endphp
                         </div>
                         
-                        <!-- Language Switcher in Top Bar -->
+                        <!-- Language Switcher Inline -->
                         <div class="gtranslate-wrap">
                             <button type="button" class="gt-btn" onclick="document.body.classList.toggle('gt-open')">
                                 <i class="fa-solid fa-language"></i>
