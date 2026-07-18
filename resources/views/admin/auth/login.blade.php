@@ -36,6 +36,24 @@
     <style>
       .login-home:hover{background:rgba(10,132,255,0.18)!important;transform:translateY(-2px)}
     </style>
+    
+    <script>
+      // Apply RTL after page fully loads (fix for Google Translate override)
+      window.addEventListener('load', function(){
+        setTimeout(function(){
+          var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);
+          var l=m?m[1]:'';
+          var rtl=['ar','ur','fa','he','ps','sd'];
+          if(rtl.indexOf(l)>=0){
+            document.documentElement.setAttribute('dir','rtl');
+            document.documentElement.classList.remove('ltr');
+            document.documentElement.classList.add('rtl');
+            var rtlCss=document.getElementById('rtl-css');
+            if(rtlCss){rtlCss.disabled=false;}
+          }
+        }, 100);
+      });
+    </script>
 </head>
 <body>
 <div class="admin-login-wrap">

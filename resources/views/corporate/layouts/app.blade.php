@@ -462,6 +462,39 @@
         }
         location.reload();
       }
+      
+      // Apply RTL after page fully loads (fix for Google Translate override)
+      window.addEventListener('load', function(){
+        setTimeout(function(){
+          var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);
+          var l=m?m[1]:'';
+          var rtl=['ar','ur','fa','he','ps','sd'];
+          if(rtl.indexOf(l)>=0){
+            document.documentElement.setAttribute('dir','rtl');
+            document.documentElement.classList.remove('ltr');
+            document.documentElement.classList.add('rtl');
+            var rtlCss=document.getElementById('rtl-css');
+            if(rtlCss){rtlCss.disabled=false;}
+          }
+        }, 100);
+      });
+      
+      // Watch for Google Translate changes
+      if(typeof MutationObserver !== 'undefined'){
+        var observer=new MutationObserver(function(mutations){
+          var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);
+          var l=m?m[1]:'';
+          var rtl=['ar','ur','fa','he','ps','sd'];
+          if(rtl.indexOf(l)>=0 && document.documentElement.getAttribute('dir') !== 'rtl'){
+            document.documentElement.setAttribute('dir','rtl');
+            document.documentElement.classList.remove('ltr');
+            document.documentElement.classList.add('rtl');
+            var rtlCss=document.getElementById('rtl-css');
+            if(rtlCss){rtlCss.disabled=false;}
+          }
+        });
+        observer.observe(document.body,{childList:true,subtree:true});
+      }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
