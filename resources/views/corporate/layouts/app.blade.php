@@ -67,51 +67,58 @@
     <link rel="stylesheet" href="{{ asset('assets/css/corporate.css') }}">
 
     <style>
-        /* Header Icon Button */
-        .header-icon-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid var(--gray-300);
-            background: var(--light-color);
-            color: var(--gray-700);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-fast);
-            cursor: pointer;
+        /* Hide Google Translate Bar */
+        .goog-te-banner-frame, .skiptranslate iframe, #goog-gt-tt {
+            display: none !important;
         }
+        body { top: 0 !important; }
+        .goog-te-menu-value span { display: none !important; }
         
-        .header-icon-btn:hover {
-            background: var(--primary-color);
-            color: var(--light-color);
-            border-color: var(--primary-color);
-        }
-        
-        /* Language Menu - Admin Style */
-        .gtranslate-wrap {
+        /* Top Bar Language Switcher */
+        .top-bar .gtranslate-wrap {
             position: relative;
         }
         
-        .gtranslate-wrap .lang-menu {
+        .top-bar .gt-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .top-bar .gt-btn:hover {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .top-bar .lang-menu {
             position: absolute;
-            top: 50px;
+            top: 40px;
             right: 0;
             z-index: 1050;
-            background: var(--light-color);
+            background: #fff;
             border: 1px solid var(--gray-200);
             border-radius: 12px;
             padding: 6px;
             display: none;
-            box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.3);
-            min-width: 150px;
+            box-shadow: 0 24px 60px -30px rgba(0,0,0,0.3);
+            min-width: 140px;
         }
         
         body.gt-open .lang-menu {
             display: block;
         }
         
-        .gtranslate-wrap .lang-menu button {
+        .top-bar .lang-menu button {
             display: block;
             width: 100%;
             text-align: left;
@@ -125,7 +132,7 @@
             transition: var(--transition-fast);
         }
         
-        .gtranslate-wrap .lang-menu button:hover {
+        .top-bar .lang-menu button:hover {
             background: var(--gray-100);
             color: var(--primary-color);
         }
@@ -189,6 +196,19 @@
                                     }
                                 } catch (\Throwable $e) {}
                             @endphp
+                        </div>
+                        
+                        <!-- Language Switcher in Top Bar -->
+                        <div class="gtranslate-wrap">
+                            <button type="button" class="gt-btn" onclick="document.body.classList.toggle('gt-open')">
+                                <i class="fa-solid fa-language"></i>
+                                <span class="d-none d-md-inline">Language</span>
+                            </button>
+                            <div id="google_translate_element" style="display:none"></div>
+                            <div class="lang-menu">
+                                <button type="button" onclick="pickLang('en')">English</button>
+                                <button type="button" onclick="pickLang('bn')">বাংলা</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -302,24 +322,7 @@
                         </li>
                     </ul>
                     
-                    <div class="nav-cta ms-lg-3 d-flex align-items-center gap-2">
-                        <!-- Search Icon -->
-                        <button class="header-icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        
-                        <!-- Language Switcher -->
-                        <div class="gtranslate-wrap">
-                            <button type="button" class="header-icon-btn" onclick="document.body.classList.toggle('gt-open')">
-                                <i class="fas fa-globe"></i>
-                            </button>
-                            <div id="google_translate_element" style="display:none"></div>
-                            <div class="lang-menu">
-                                <button type="button" onclick="pickLang('en')">English</button>
-                                <button type="button" onclick="pickLang('bn')">বাংলা</button>
-                            </div>
-                        </div>
-                        
+                    <div class="nav-cta ms-lg-3">
                         <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate">Get Started</a>
                     </div>
                 </div>
