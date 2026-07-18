@@ -78,6 +78,11 @@ class Blog extends Model
         return $this->featured_image ? asset('storage/' . $this->featured_image) : null;
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', '!=', 'draft');
+    }
+
     public function scopePublished($query)
     {
         return $query->where('status', 'published')
