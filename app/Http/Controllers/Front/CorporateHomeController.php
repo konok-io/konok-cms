@@ -114,6 +114,42 @@ class CorporateHomeController extends Controller
         ));
     }
 
+    public function serviceCategory($slug)
+    {
+        $siteSetting = Setting::first();
+        $category = ServiceCategory::where('slug', $slug)->firstOrFail();
+        $services = Service::active()->where('category_id', $category->id)->ordered()->get();
+        
+        return view('corporate.pages.services', compact(
+            'siteSetting',
+            'category',
+            'services'
+        ));
+    }
+
+    public function solutionType($type)
+    {
+        $siteSetting = Setting::first();
+        $solutions = Solution::active()->ofType($type)->ordered()->get();
+        
+        return view('corporate.pages.solutions', compact(
+            'siteSetting',
+            'solutions',
+            'type'
+        ));
+    }
+
+    public function industry($slug)
+    {
+        $siteSetting = Setting::first();
+        $industry = Industry::where('slug', $slug)->firstOrFail();
+        
+        return view('corporate.pages.industry', compact(
+            'siteSetting',
+            'industry'
+        ));
+    }
+
     public function projects()
     {
         $siteSetting = Setting::first();
