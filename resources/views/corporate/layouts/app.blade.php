@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <script>
+      (function(){try{
+        var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);var l=m?m[1]:'';
+        var rtl=['ar','ur','fa','he','ps','sd'];
+        if(rtl.indexOf(l)>=0){document.documentElement.setAttribute('dir','rtl');}
+      }catch(e){}})();
+    </script>
 
     @php
         $seoMeta = null;
@@ -407,9 +415,15 @@
         document.body.classList.remove('gt-open');
         var host = location.hostname;
         var val = '/en/' + lang;
+        var rtl=['ar','ur','fa','he','ps','sd'];
         document.cookie = 'googtrans=' + val + ';path=/';
         document.cookie = 'googtrans=' + val + ';path=/;domain=' + host;
         document.cookie = 'googtrans=' + val + ';path=/;domain=.' + host;
+        if(rtl.indexOf(lang)>=0){
+          document.documentElement.setAttribute('dir','rtl');
+        } else {
+          document.documentElement.setAttribute('dir','ltr');
+        }
         if(lang === 'en'){
           document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
           document.cookie = 'googtrans=;path=/;domain=' + host + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
