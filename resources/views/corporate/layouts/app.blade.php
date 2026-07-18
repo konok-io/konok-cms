@@ -381,7 +381,7 @@
                     icon: 'success',
                     title: 'Success!',
                     text: @json(session('success')),
-                    confirmButtonColor: '#0066CC',
+                    confirmButtonColor: '#6366F1',
                 });
             });
         </script>
