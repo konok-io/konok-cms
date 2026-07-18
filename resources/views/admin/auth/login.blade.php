@@ -29,12 +29,12 @@
     <div class="admin-login-card">
         <div class="text-center mb-4">
             <a href="{{ route('home') }}" class="d-inline-flex align-items-center justify-content-center rounded-3 mb-3 login-home"
-               style="width:56px;height:56px;background:rgba(37,99,235,0.1);text-decoration:none;transition:background .16s,transform .16s"
+               style="width:56px;height:56px;background:rgba(10,132,255,0.1);text-decoration:none;transition:background .16s,transform .16s"
                aria-label="Back to home" title="Back to home">
-                <i class="fa-solid fa-house fs-3 text-primary"></i>
+                <i class="fa-solid fa-house fs-3 color:#0A84FF"></i>
             </a>
             <h4 class="fw-bold mb-1">Welcome Back</h4>
-            <p class="text-muted small mb-0">Sign in to manage your portfolio</p>
+            <p class="text-muted small mb-0">Sign in to manage your website</p>
         </div>
 
         @if($errors->any())

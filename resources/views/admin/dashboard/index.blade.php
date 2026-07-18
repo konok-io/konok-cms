@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(48,209,88,0.1); color:#30D158;"><i class="fa-solid fa-chart-simple"></i></div>
+            <div class="stat-icon" style="background: rgba(10,132,255,0.1); color:#0A84FF;"><i class="fa-solid fa-chart-simple"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['skills'] }}</div>
                 <div class="stat-label">Total Skills</div>
@@ -42,7 +42,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(255,159,10,0.1); color:#FF9F0A;"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="stat-icon" style="background: rgba(191,90,242,0.1); color:#BF5AF2;"><i class="fa-solid fa-quote-left"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['testimonials'] }}</div>
                 <div class="stat-label">Total Testimonials</div>
@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(100,210,255,0.1); color:#64D2FF;"><i class="fa-solid fa-newspaper"></i></div>
+            <div class="stat-icon" style="background: rgba(10,132,255,0.1); color:#0A84FF;"><i class="fa-solid fa-newspaper"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['blogs'] }}</div>
                 <div class="stat-label">Total Blogs</div>
@@ -60,7 +60,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(255,69,58,0.1); color:#FF453A;"><i class="fa-solid fa-envelope"></i></div>
+            <div class="stat-icon" style="background: rgba(191,90,242,0.1); color:#BF5AF2;"><i class="fa-solid fa-envelope"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['messages'] }}</div>
                 <div class="stat-label">Messages ({{ $stats['unread_messages'] }})</div>
@@ -87,7 +87,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(48,209,88,0.1); color:#30D158;"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="stat-icon" style="background: rgba(10,132,255,0.1); color:#0A84FF;"><i class="fa-solid fa-user-tie"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['clients'] }}</div>
                 <div class="stat-label">Clients</div>
@@ -96,7 +96,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(255,159,10,0.1); color:#FF9F0A;"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div class="stat-icon" style="background: rgba(191,90,242,0.1); color:#BF5AF2;"><i class="fa-solid fa-envelope-open-text"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['subscribers'] }}</div>
                 <div class="stat-label">Subscribers</div>
@@ -148,8 +148,8 @@
     <div class="col-lg-6">
         <div class="admin-card">
             <div class="card-header-custom d-flex justify-content-between align-items-center">
-                <span><i class="fa-solid fa-diagram-project me-2"></i>Recent Projects</span>
-                <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-primary-corporate">View All</a>
+                <span><i class="fa-solid fa-diagram-project me-2" style="color:#0A84FF;"></i>Recent Projects</span>
+                <a href="{{ route('admin.projects.index') }}" class="btn btn-sm" style="background:#0A84FF;color:#fff;">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-admin mb-0">
@@ -179,8 +179,8 @@
     <div class="col-lg-6">
         <div class="admin-card">
             <div class="card-header-custom d-flex justify-content-between align-items-center">
-                <span><i class="fa-solid fa-newspaper me-2"></i>Recent Blogs</span>
-                <a href="{{ route('admin.blogs.index') }}" class="btn btn-sm btn-primary-corporate">View All</a>
+                <span><i class="fa-solid fa-newspaper me-2" style="color:#BF5AF2;"></i>Recent Blogs</span>
+                <a href="{{ route('admin.blogs.index') }}" class="btn btn-sm" style="background:#BF5AF2;color:#fff;">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-admin mb-0">
@@ -213,8 +213,8 @@
     <div class="col-12">
         <div class="admin-card">
             <div class="card-header-custom d-flex justify-content-between align-items-center">
-                <span><i class="fa-solid fa-envelope me-2"></i>Recent Messages</span>
-                <a href="{{ route('admin.messages.index') }}" class="btn btn-sm btn-primary-corporate">View All</a>
+                <span><i class="fa-solid fa-envelope me-2" style="color:#0A84FF;"></i>Recent Messages</span>
+                <a href="{{ route('admin.messages.index') }}" class="btn btn-sm" style="background:#BF5AF2;color:#fff;">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-admin mb-0">
@@ -235,9 +235,9 @@
                                 <td>{{ Str::limit($message->message, 40) }}</td>
                                 <td>
                                     @if(!$message->is_read)
-                                        <span class="badge" style="background: rgba(255,69,58,0.1); color:#FF453A;">New</span>
+                                        <span class="badge" style="background: rgba(10,132,255,0.1); color:#0A84FF;">New</span>
                                     @else
-                                        <span class="badge" style="background: rgba(48,209,88,0.1); color:#30D158;">Read</span>
+                                        <span class="badge" style="background: rgba(191,90,242,0.1); color:#BF5AF2;">Read</span>
                                     @endif
                                 </td>
                                 <td>{{ $message->created_at->diffForHumans() }}</td>
@@ -258,7 +258,7 @@
     <div class="col-12">
         <div class="admin-card">
             <div class="card-header-custom d-flex align-items-center justify-content-between">
-                <span><i class="fa-solid fa-key me-2"></i>License Information</span>
+                <span><i class="fa-solid fa-key me-2" style="color:#0A84FF;"></i>License Information</span>
                 @if(($license['ready'] ?? false) && ($license['status'] ?? '') !== '')
                     @php
                         $st = strtolower($license['status'] ?? 'unknown');
@@ -291,11 +291,11 @@
                                 @if(!is_null($license['days_left']))
                                     @php $dl = (int) $license['days_left']; @endphp
                                     @if($dl > 0)
-                                        <span class="badge" style="background: rgba(48,209,88,0.1); color:#30D158;">{{ $dl }} day{{ $dl === 1 ? '' : 's' }} left</span>
+                                        <span class="badge" style="background: rgba(10,132,255,0.1); color:#0A84FF;">{{ $dl }} day{{ $dl === 1 ? '' : 's' }} left</span>
                                     @elseif($dl === 0)
-                                        <span class="badge" style="background: rgba(255,159,10,0.1); color:#FF9F0A;">Expires today</span>
+                                        <span class="badge" style="background: rgba(191,90,242,0.1); color:#BF5AF2;">Expires today</span>
                                     @else
-                                        <span class="badge" style="background: rgba(255,69,58,0.1); color:#FF453A;">Expired {{ abs($dl) }} day{{ abs($dl) === 1 ? '' : 's' }} ago</span>
+                                        <span class="badge" style="background: rgba(10,132,255,0.1); color:#0A84FF;">Expired {{ abs($dl) }} day{{ abs($dl) === 1 ? '' : 's' }} ago</span>
                                     @endif
                                 @endif
                             </div>
@@ -376,7 +376,7 @@
                 labels: {!! json_encode($browserStats->pluck('browser')) !!},
                 datasets: [{
                     data: {!! json_encode($browserStats->pluck('total')) !!},
-                    backgroundColor: ['#0A84FF', '#BF5AF2', '#FF375F', '#30D158', '#FF9F0A', '#64D2FF'],
+                    backgroundColor: ['#0A84FF', '#BF5AF2', '#64D2FF', '#30D158', '#FF9F0A', '#FF375F'],
                     borderWidth: 0,
                 }]
             },
