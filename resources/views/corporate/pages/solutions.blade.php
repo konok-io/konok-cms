@@ -30,8 +30,8 @@
                         <div class="solution-icon">
                             <i class="{{ $solution->icon ?? 'fas fa-lightbulb' }}"></i>
                         </div>
-                        <h4>{{ $solution->title }}</h4>
-                        <p>{{ Str::limit(strip_tags($solution->description ?? ''), 120) }}</p>
+                        <h4>{{ $solution->name }}</h4>
+                        <p>{{ Str::limit(strip_tags($solution->short_description ?? ''), 120) }}</p>
                         @if($solution->features && is_array($solution->features))
                         <ul class="solution-features">
                             @foreach(array_slice($solution->features, 0, 3) as $feature)

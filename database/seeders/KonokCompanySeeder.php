@@ -171,18 +171,20 @@ class KonokCompanySeeder extends Seeder
     private function seedSolutions()
     {
         $solutions = [
-            ['name' => 'ERP System', 'slug' => 'erp-system', 'type' => 'ERP', 'icon' => 'fas fa-cogs', 'short_description' => 'Enterprise Resource Planning system.'],
-            ['name' => 'POS System', 'slug' => 'pos-system', 'type' => 'POS', 'icon' => 'fas fa-credit-card', 'short_description' => 'Point of Sale system.'],
-            ['name' => 'CRM Solution', 'slug' => 'crm-solution', 'type' => 'CRM', 'icon' => 'fas fa-users', 'short_description' => 'Customer Relationship Management.'],
-            ['name' => 'HRM System', 'slug' => 'hrm-system', 'type' => 'HRM', 'icon' => 'fas fa-user-tie', 'short_description' => 'Human Resource Management.'],
-            ['name' => 'Accounting Software', 'slug' => 'accounting-software', 'type' => 'Accounting', 'icon' => 'fas fa-calculator', 'short_description' => 'Accounting and financial management.'],
-            ['name' => 'Cloud Platform', 'slug' => 'cloud-platform', 'type' => 'Cloud', 'icon' => 'fas fa-cloud', 'short_description' => 'Scalable cloud infrastructure.'],
+            ['name' => 'ERP System', 'slug' => 'erp-system', 'type' => 'ERP', 'icon' => 'fas fa-cogs', 'short_description' => 'Enterprise Resource Planning system for complete business management.'],
+            ['name' => 'POS System', 'slug' => 'pos-system', 'type' => 'POS', 'icon' => 'fas fa-credit-card', 'short_description' => 'Point of Sale system for retail and restaurant management.'],
+            ['name' => 'CRM Solution', 'slug' => 'crm-solution', 'type' => 'CRM', 'icon' => 'fas fa-users', 'short_description' => 'Customer Relationship Management for better customer engagement.'],
+            ['name' => 'HRM System', 'slug' => 'hrm-system', 'type' => 'HRM', 'icon' => 'fas fa-user-tie', 'short_description' => 'Human Resource Management for workforce optimization.'],
+            ['name' => 'Accounting Software', 'slug' => 'accounting-software', 'type' => 'Accounting', 'icon' => 'fas fa-calculator', 'short_description' => 'Complete accounting and financial management solution.'],
+            ['name' => 'Cloud Platform', 'slug' => 'cloud-platform', 'type' => 'Cloud', 'icon' => 'fas fa-cloud', 'short_description' => 'Scalable cloud infrastructure for modern businesses.'],
+            ['name' => 'AI Solutions', 'slug' => 'ai-solutions', 'type' => 'AI', 'icon' => 'fas fa-robot', 'short_description' => 'Artificial Intelligence solutions for business automation.'],
+            ['name' => 'Cyber Security', 'slug' => 'cyber-security', 'type' => 'Security', 'icon' => 'fas fa-shield-alt', 'short_description' => 'Comprehensive cybersecurity solutions to protect your business.'],
         ];
 
         foreach ($solutions as $index => $sol) {
             Solution::updateOrCreate(['slug' => $sol['slug']], array_merge($sol, [
                 'order' => $index + 1,
-                'is_featured' => $index < 3,
+                'is_featured' => $index < 4,
                 'is_active' => true,
             ]));
         }
