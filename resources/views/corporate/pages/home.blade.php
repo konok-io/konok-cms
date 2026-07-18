@@ -43,29 +43,65 @@
 
 <!-- About Section (Dynamic from CompanyProfile) -->
 @if($companyProfile->description)
-<section class="about-section section-padding" style="background: var(--bg-primary);">
+<section class="about-section section-padding" style="background: white;">
     <div class="container">
         <div class="row align-items-center g-5">
             @if($companyProfile->about_image)
             <div class="col-lg-6" data-aos="fade-right">
-                <div class="about-image position-relative">
-                    <img src="{{ asset($companyProfile->about_image) }}" 
-                         alt="About {{ $companyProfile->company_name ?? 'KONOK' }}" 
-                         class="img-fluid rounded-3" style="box-shadow: var(--shadow-lg);">
+                <div class="position-relative">
+                    <div class="about-image-wrapper" style="position: relative;">
+                        <img src="{{ $companyProfile->about_image }}" 
+                             alt="About {{ $companyProfile->company_name ?? 'KONOK' }}" 
+                             class="img-fluid rounded-3" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+                        <!-- Experience Badge -->
+                        <div class="position-absolute" style="bottom: -20px; right: -20px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 20px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);">
+                            <div style="font-size: 2rem; font-weight: 700; line-height: 1;">{{ $companyProfile->founded_year ? date('Y') - $companyProfile->founded_year : '10+' }}</div>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Years of<br>Experience</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endif
             <div class="col-lg-{{ $companyProfile->about_image ? '6' : '12' }}" data-aos="fade-left" data-aos-delay="200">
-                <div class="about-content {{ $companyProfile->about_image ? '' : 'text-center mx-auto' }}" style="{{ $companyProfile->about_image ? '' : 'max-width: 800px;' }}">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">
-                        {{ $companyProfile->company_name ?? 'About Us' }}
-                    </h2>
-                    <div style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
-                        {!! $companyProfile->description !!}
+                <div class="about-content pe-lg-4 {{ $companyProfile->about_image ? '' : 'text-center mx-auto' }}" style="{{ $companyProfile->about_image ? '' : 'max-width: 800px;' }}">
+                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4" style="background: linear-gradient(135deg, rgba(10, 132, 255, 0.1), rgba(99, 102, 241, 0.1));">
+                        <i class="fas fa-building" style="color: var(--primary-color);"></i>
+                        <span style="color: var(--primary-color); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">About Us</span>
                     </div>
-                    <a href="{{ route('front.about') }}" class="btn btn-primary-corporate mt-5">
-                        Learn More <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
+                    <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); line-height: 1.3;">
+                        {{ $companyProfile->company_name ?? 'Who We Are' }}
+                    </h2>
+                    <div style="color: #666; font-size: 1.05rem; line-height: 1.9; margin-bottom: 2rem;">
+                        {!! Str::limit($companyProfile->description, 400) !!}
+                    </div>
+                    
+                    @php
+                        $features = $companyProfile->home_features ?? [
+                            ['icon' => 'fas fa-headset', 'title' => '24/7 Support'],
+                            ['icon' => 'fas fa-users-cog', 'title' => 'Expert Team'],
+                            ['icon' => 'fas fa-award', 'title' => 'Quality Assured'],
+                            ['icon' => 'fas fa-clock', 'title' => 'On-Time Delivery'],
+                        ];
+                    @endphp
+                    
+                    <div class="row g-3">
+                        @foreach($features as $feature)
+                        <div class="col-6">
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-2" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                                <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; flex-shrink: 0;">
+                                    <i class="{{ $feature['icon'] ?? 'fas fa-check' }}"></i>
+                                </div>
+                                <span style="font-weight: 600; color: var(--text-primary); font-size: 0.9rem;">{{ $feature['title'] ?? '' }}</span>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="{{ route('front.about') }}" class="btn btn-primary-corporate">
+                            Learn More About Us <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
