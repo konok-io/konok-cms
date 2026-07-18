@@ -17,14 +17,14 @@
                         Transforming Ideas Into
                         <span class="gradient-text">Digital Excellence</span>
                     </h1>
-                    <p class="lead mb-5" style="color: var(--gray-500);">
+                    <p class="lead mb-5" style="color: var(--gray-600);">
                         {{ $companyProfile->tagline ?? 'KEY OF NEXT ONLINE KNOWLEDGE - We empower businesses through cutting-edge technology solutions, helping you navigate the digital landscape with confidence.' }}
                     </p>
                     <div class="hero-buttons d-flex flex-wrap gap-3">
                         <a href="{{ route('front.services') }}" class="btn btn-primary-corporate btn-lg px-4">
                             Explore Services <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="{{ route('front.contact') }}" class="btn btn-lg px-4" style="background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-md);">
+                        <a href="{{ route('front.contact') }}" class="btn btn-lg px-4" style="background: white; color: var(--text-primary); border: 1px solid var(--gray-200); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
                             <i class="fas fa-phone-alt me-2"></i> Contact Us
                         </a>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="hero-glow"></div>
                     <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
                          alt="KONOK Digital Solutions" 
-                         class="img-fluid rounded-4" style="box-shadow: 0 20px 60px rgba(10, 132, 255, 0.3);">
+                         class="img-fluid rounded-4" style="box-shadow: var(--shadow-xl);">
                 </div>
             </div>
         </div>
@@ -55,34 +55,34 @@
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="about-content ps-lg-5">
-                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4" style="background: rgba(10, 132, 255, 0.1); color: var(--primary-color); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">
+                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4" style="background: rgba(10, 132, 255, 0.08); color: var(--primary-color); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">
                         <i class="fas fa-building"></i> About KONOK
                     </span>
                     <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">Empowering Businesses Through Technology</h2>
-                    <p style="color: var(--gray-500); font-size: 1.1rem; line-height: 1.8;">
+                    <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
                         {{ $companyProfile->description ?? 'KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation.' }}
                     </p>
                     
                     <div class="about-features d-flex flex-wrap gap-3 mt-5">
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
                             <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
                                 <i class="fas fa-headset"></i>
                             </div>
                             <span style="font-weight: 600; color: var(--text-primary);">24/7 Support</span>
                         </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
                             <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
                                 <i class="fas fa-users-cog"></i>
                             </div>
                             <span style="font-weight: 600; color: var(--text-primary);">Expert Team</span>
                         </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
                             <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
                                 <i class="fas fa-award"></i>
                             </div>
                             <span style="font-weight: 600; color: var(--text-primary);">Quality Assured</span>
                         </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
                             <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
                                 <i class="fas fa-clock"></i>
                             </div>
@@ -104,7 +104,7 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-6" data-aos="fade-up">
-                <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-tertiary); border: 1px solid rgba(255,255,255,0.08) !important;">
+                <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-card); box-shadow: var(--shadow-md);">
                     <div class="card-body p-5">
                         <div class="mb-4">
                             <span class="d-inline-flex align-items-center justify-content-center rounded-2" style="width: 72px; height: 72px; background: var(--gradient-primary);">
@@ -112,14 +112,14 @@
                             </span>
                         </div>
                         <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Our Vision</h3>
-                        <p style="color: var(--gray-500); font-size: 1.05rem; line-height: 1.8;">
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
                             {{ $companyProfile->vision ?? 'To be the most trusted technology partner for businesses worldwide, setting new standards of excellence in digital innovation.' }}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-tertiary); border: 1px solid rgba(255,255,255,0.08) !important;">
+                <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-card); box-shadow: var(--shadow-md);">
                     <div class="card-body p-5">
                         <div class="mb-4">
                             <span class="d-inline-flex align-items-center justify-content-center rounded-2" style="width: 72px; height: 72px; background: var(--gradient-accent);">
@@ -127,7 +127,7 @@
                             </span>
                         </div>
                         <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Our Mission</h3>
-                        <p style="color: var(--gray-500); font-size: 1.05rem; line-height: 1.8;">
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
                             {{ $companyProfile->mission ?? 'To empower businesses with cutting-edge technology solutions that drive efficiency, growth, and competitive advantage.' }}
                         </p>
                     </div>
@@ -160,7 +160,7 @@
             
             @foreach($services as $index => $service)
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="service-card-v2 h-100" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="service-card-v2 h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
                         <div class="service-card-icon">
                             <div class="icon-wrapper">
                                 <i class="{{ $service['icon'] }}"></i>
@@ -247,7 +247,7 @@
             
             @foreach($teamMembers as $index => $member)
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="team-card" style="background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
                         <div class="team-image">
                             <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}">
                             <div class="team-social">
@@ -304,7 +304,7 @@
             
             @foreach($testimonials as $index => $testimonial)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="testimonial-card h-100" style="background: var(--bg-tertiary); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="testimonial-card h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
                         <div class="testimonial-rating" style="color: var(--orange-color);">
                             @for($i = 0; $i < 5; $i++)
                                 <i class="fas fa-star"></i>
@@ -348,7 +348,7 @@
         transform: translate(-50%, -50%);
         width: 300px;
         height: 300px;
-        background: radial-gradient(circle, rgba(10, 132, 255, 0.4) 0%, rgba(191, 90, 242, 0.2) 50%, transparent 70%);
+        background: radial-gradient(circle, rgba(10, 132, 255, 0.15) 0%, rgba(191, 90, 242, 0.1) 50%, transparent 70%);
         filter: blur(60px);
         z-index: -1;
     }
