@@ -27,14 +27,14 @@
         <div class="container">
             <div class="row g-4">
                 <!-- Company Info -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-column">
                         <div class="footer-column-content footer-about">
                             <div class="footer-brand">
                                 <div class="footer-brand-icon">K</div>
                                 <span class="footer-brand-text">{{ $companyProfile->short_name ?? 'KONOK' }}</span>
                             </div>
-                            <p>{{ $companyProfile->tagline ?? 'KEY OF NEXT ONLINE KNOWLEDGE. Empowering businesses through innovative technology solutions and digital transformation services.' }}</p>
+                            <p>{{ $companyProfile->tagline ?? 'KEY OF NEXT ONLINE KNOWLEDGE. Empowering businesses through innovative technology solutions.' }}</p>
                             <div class="footer-social">
                                 @php
                                     try {
@@ -62,7 +62,7 @@
                 </div>
                 
                 <!-- Quick Links -->
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-column">
                         <div class="footer-column-content">
                             <h5>Quick Links</h5>
@@ -79,7 +79,7 @@
                 </div>
                 
                 <!-- Services -->
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-column">
                         <div class="footer-column-content">
                             <h5>Services</h5>
@@ -109,7 +109,7 @@
                 </div>
                 
                 <!-- Contact Info -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-column">
                         <div class="footer-column-content">
                             <h5>Contact Us</h5>
