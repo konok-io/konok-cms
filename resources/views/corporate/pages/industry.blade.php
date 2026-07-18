@@ -12,14 +12,14 @@
                 <ol class="breadcrumb justify-content-center mb-3">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('front.industries') }}" class="text-white-50">Industries</a></li>
-                    <li class="breadcrumb-item active text-white" aria-current="page">{{ $industry->name }}</li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">{!! $industry->name !!}</li>
                 </ol>
             </nav>
             <div class="industry-icon-large mb-3">
                 <i class="{{ $industry->icon ?? 'fas fa-industry' }}"></i>
             </div>
-            <h1 class="mb-3" style="color: white;">{{ $industry->name }}</h1>
-            <p class="lead">{{ $industry->description ?? '' }}</p>
+            <h1 class="mb-3" style="color: white;">{!! $industry->name !!}</h1>
+            <div class="lead">{!! $industry->description ?? '' !!}</div>
         </div>
     </div>
 </section>
@@ -39,13 +39,13 @@
                     <!-- Solutions for this industry -->
                     @if(isset($solutions) && $solutions->count() > 0)
                     <div class="solutions-for-industry">
-                        <h3><i class="fas fa-lightbulb me-2 text-primary"></i>Our Solutions for {{ $industry->name }}</h3>
+                        <h3><i class="fas fa-lightbulb me-2 text-primary"></i>Our Solutions for {!! $industry->name !!}</h3>
                         <div class="row mt-4">
                             @foreach($solutions as $solution)
                             <div class="col-md-6 mb-3">
                                 <div class="solution-item">
                                     <i class="{{ $solution->icon ?? 'fas fa-check' }} me-2 text-primary"></i>
-                                    {{ $solution->title }}
+                                    {!! $solution->title !!}
                                 </div>
                             </div>
                             @endforeach
@@ -62,8 +62,8 @@
 <section class="cta-section">
     <div class="container">
         <div class="cta-content text-center" data-aos="zoom-in">
-            <h2>Ready to Transform Your {{ $industry->name }} Business?</h2>
-            <p>Let's discuss how we can help you leverage technology for your {{ $industry->name }} operations.</p>
+            <h2>Ready to Transform Your {!! $industry->name !!} Business?</h2>
+            <p>Let's discuss how we can help you leverage technology for your {!! $industry->name !!} operations.</p>
             <a href="{{ route('front.contact') }}" class="btn btn-cta">
                 Get Started <i class="fas fa-arrow-right ms-2"></i>
             </a>
