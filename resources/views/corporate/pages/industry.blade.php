@@ -43,14 +43,14 @@
 @if(count($solutions) > 0)
 <section class="industry-stats-section py-5" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             @foreach($solutions as $index => $stat)
-            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                <div class="text-center text-white">
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="text-center text-white py-3">
                     <div class="mb-2" style="font-size: 2rem;">
                         <i class="{{ $stat['icon'] ?? 'fas fa-chart-line' }}"></i>
                     </div>
-                    <div style="font-size: 1.5rem; font-weight: 700;">{{ $stat['title'] ?? '' }}</div>
+                    <div style="font-size: 1.1rem; font-weight: 700; line-height: 1.3;">{{ $stat['title'] ?? '' }}</div>
                 </div>
             </div>
             @endforeach
