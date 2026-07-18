@@ -25,7 +25,7 @@ class BlogSeeder extends Seeder
             return;
         }
 
-        $admin = User::where('email', 'admin@example.com')->first();
+        $admin = User::where('email', 'admin@konok.io')->first();
 
         $titles = [
             'Getting Started with Laravel 12',

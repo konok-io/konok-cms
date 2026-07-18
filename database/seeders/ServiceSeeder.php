@@ -48,7 +48,7 @@ class ServiceSeeder extends Seeder
                 [
                     'icon' => $service['icon'],
                     'description' => $service['description'],
-                    'sort_order' => $index,
+                    'order' => $index,
                     'is_active' => true,
                 ]
             );

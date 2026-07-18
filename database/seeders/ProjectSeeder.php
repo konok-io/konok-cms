@@ -16,7 +16,7 @@ class ProjectSeeder extends Seeder
         $categories = collect($categoryNames)->map(function ($name) {
             return ProjectCategory::firstOrCreate(
                 ['slug' => Str::slug($name)],
-                ['name' => $name]
+                ['name' => $name, 'is_active' => true]
             );
         });
 
