@@ -234,11 +234,11 @@ class KonokCompanySeeder extends Seeder
     private function seedPartners()
     {
         $partners = [
-            ['name' => 'Microsoft', 'slug' => 'microsoft'],
-            ['name' => 'Google Cloud', 'slug' => 'google-cloud'],
-            ['name' => 'AWS', 'slug' => 'aws'],
-            ['name' => 'Adobe', 'slug' => 'adobe'],
-            ['name' => 'Salesforce', 'slug' => 'salesforce'],
+            ['name' => 'Microsoft', 'slug' => 'microsoft', 'partner_type' => 'technology'],
+            ['name' => 'Google Cloud', 'slug' => 'google-cloud', 'partner_type' => 'technology'],
+            ['name' => 'AWS', 'slug' => 'aws', 'partner_type' => 'technology'],
+            ['name' => 'Adobe', 'slug' => 'adobe', 'partner_type' => 'technology'],
+            ['name' => 'Salesforce', 'slug' => 'salesforce', 'partner_type' => 'technology'],
         ];
 
         foreach ($partners as $index => $partner) {
