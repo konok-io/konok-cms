@@ -120,15 +120,56 @@
                 <i class="fa-solid fa-gauge"></i> Dashboard
             </a>
 
-            <div class="nav-section-title">Content</div>
-            <a href="{{ route('admin.about.edit') }}" class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}">
-                <i class="fa-solid fa-user"></i> About Me
+            <div class="nav-section-title">Company</div>
+            <a href="{{ route('admin.company-profile.edit') }}" class="nav-link {{ request()->routeIs('admin.company-profile.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-building"></i> Company Profile
             </a>
-            <a href="{{ route('admin.skills.index') }}" class="nav-link {{ request()->routeIs('admin.skills.*') ? 'active' : '' }}">
-                <i class="fa-solid fa-chart-simple"></i> Skills
+            <a href="{{ route('admin.hero-sections.index') }}" class="nav-link {{ request()->routeIs('admin.hero-sections.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-image"></i> Hero Sections
+            </a>
+            <a href="{{ route('admin.social-links.index') }}" class="nav-link {{ request()->routeIs('admin.social-links.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-share-nodes"></i> Social Links
+            </a>
+
+            <div class="nav-section-title">Services</div>
+            <a href="{{ route('admin.service-categories.index') }}" class="nav-link {{ request()->routeIs('admin.service-categories.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-layer-group"></i> Service Categories
             </a>
             <a href="{{ route('admin.services.index') }}" class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-briefcase"></i> Services
+            </a>
+            <a href="{{ route('admin.industries.index') }}" class="nav-link {{ request()->routeIs('admin.industries.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-industry"></i> Industries
+            </a>
+            <a href="{{ route('admin.solutions.index') }}" class="nav-link {{ request()->routeIs('admin.solutions.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-gears"></i> Solutions
+            </a>
+            <a href="{{ route('admin.case-studies.index') }}" class="nav-link {{ request()->routeIs('admin.case-studies.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-file-contract"></i> Case Studies
+            </a>
+
+            <div class="nav-section-title">Portfolio</div>
+            <a href="{{ route('admin.projects.index') }}" class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-diagram-project"></i> Projects
+            </a>
+            <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-quote-left"></i> Testimonials
+            </a>
+            <a href="{{ route('admin.clients.index') }}" class="nav-link {{ request()->routeIs('admin.clients.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-users"></i> Clients
+            </a>
+            <a href="{{ route('admin.partners.index') }}" class="nav-link {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-handshake"></i> Partners
+            </a>
+
+            <div class="nav-section-title">Team</div>
+            <a href="{{ route('admin.team-members.index') }}" class="nav-link {{ request()->routeIs('admin.team-members.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-user-group"></i> Team Members
+            </a>
+
+            <div class="nav-section-title">Content</div>
+            <a href="{{ route('admin.skills.index') }}" class="nav-link {{ request()->routeIs('admin.skills.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-chart-simple"></i> Skills
             </a>
             <a href="{{ route('admin.experience.index') }}" class="nav-link {{ request()->routeIs('admin.experience.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-building"></i> Experience
@@ -136,14 +177,25 @@
             <a href="{{ route('admin.education.index') }}" class="nav-link {{ request()->routeIs('admin.education.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-graduation-cap"></i> Education
             </a>
-            <a href="{{ route('admin.projects.index') }}" class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
-                <i class="fa-solid fa-diagram-project"></i> Projects
-            </a>
             <a href="{{ route('admin.blog.index') }}" class="nav-link {{ request()->routeIs('admin.blog.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-newspaper"></i> Blog Posts
             </a>
-            <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
-                <i class="fa-solid fa-quote-left"></i> Testimonials
+            <a href="{{ route('admin.faqs.index') }}" class="nav-link {{ request()->routeIs('admin.faqs.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-circle-question"></i> FAQs
+            </a>
+
+            <div class="nav-section-title">Careers</div>
+            <a href="{{ route('admin.job-departments.index') }}" class="nav-link {{ request()->routeIs('admin.job-departments.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-sitemap"></i> Departments
+            </a>
+            <a href="{{ route('admin.job-locations.index') }}" class="nav-link {{ request()->routeIs('admin.job-locations.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-location-dot"></i> Locations
+            </a>
+            <a href="{{ route('admin.careers.index') }}" class="nav-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-briefcase"></i> Job Listings
+            </a>
+            <a href="{{ route('admin.job-applications.index') }}" class="nav-link {{ request()->routeIs('admin.job-applications.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-file-lines"></i> Applications
             </a>
 
             <div class="nav-section-title">Communication</div>
@@ -167,9 +219,6 @@
             </a>
             <a href="{{ route('admin.seo.edit') }}" class="nav-link {{ request()->routeIs('admin.seo.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-magnifying-glass-chart"></i> SEO Settings
-            </a>
-            <a href="{{ route('admin.license.index') }}" class="nav-link {{ request()->routeIs('admin.license.*') ? 'active' : '' }}">
-                <i class="fa-solid fa-certificate"></i> License
             </a>
 
             <div class="nav-section-title">Account</div>

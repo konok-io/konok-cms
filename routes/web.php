@@ -91,6 +91,79 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Company Profile
+    Route::get('/company-profile', [\App\Http\Controllers\Admin\CorporateController::class, 'companyProfileEdit'])->name('company-profile.edit');
+    Route::put('/company-profile', [\App\Http\Controllers\Admin\CorporateController::class, 'companyProfileUpdate'])->name('company-profile.update');
+
+    // Hero Sections
+    Route::get('/hero-sections', [\App\Http\Controllers\Admin\CorporateController::class, 'heroSectionsIndex'])->name('hero-sections.index');
+    Route::post('/hero-sections', [\App\Http\Controllers\Admin\CorporateController::class, 'heroSectionStore'])->name('hero-sections.store');
+    Route::delete('/hero-sections/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'heroSectionDestroy'])->name('hero-sections.destroy');
+
+    // Social Links
+    Route::get('/social-links', [\App\Http\Controllers\Admin\CorporateController::class, 'socialLinksIndex'])->name('social-links.index');
+    Route::post('/social-links', [\App\Http\Controllers\Admin\CorporateController::class, 'socialLinkStore'])->name('social-links.store');
+    Route::delete('/social-links/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'socialLinkDestroy'])->name('social-links.destroy');
+
+    // Service Categories
+    Route::get('/service-categories', [\App\Http\Controllers\Admin\CorporateController::class, 'serviceCategoriesIndex'])->name('service-categories.index');
+    Route::post('/service-categories', [\App\Http\Controllers\Admin\CorporateController::class, 'serviceCategoryStore'])->name('service-categories.store');
+    Route::delete('/service-categories/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'serviceCategoryDestroy'])->name('service-categories.destroy');
+
+    // Industries
+    Route::get('/industries', [\App\Http\Controllers\Admin\CorporateController::class, 'industriesIndex'])->name('industries.index');
+    Route::post('/industries', [\App\Http\Controllers\Admin\CorporateController::class, 'industryStore'])->name('industries.store');
+    Route::delete('/industries/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'industryDestroy'])->name('industries.destroy');
+
+    // Solutions
+    Route::get('/solutions', [\App\Http\Controllers\Admin\CorporateController::class, 'solutionsIndex'])->name('solutions.index');
+    Route::post('/solutions', [\App\Http\Controllers\Admin\CorporateController::class, 'solutionStore'])->name('solutions.store');
+    Route::delete('/solutions/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'solutionDestroy'])->name('solutions.destroy');
+
+    // Case Studies
+    Route::get('/case-studies', [\App\Http\Controllers\Admin\CorporateController::class, 'caseStudiesIndex'])->name('case-studies.index');
+    Route::post('/case-studies', [\App\Http\Controllers\Admin\CorporateController::class, 'caseStudyStore'])->name('case-studies.store');
+    Route::delete('/case-studies/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'caseStudyDestroy'])->name('case-studies.destroy');
+
+    // Clients
+    Route::get('/clients', [\App\Http\Controllers\Admin\CorporateController::class, 'clientsIndex'])->name('clients.index');
+    Route::post('/clients', [\App\Http\Controllers\Admin\CorporateController::class, 'clientStore'])->name('clients.store');
+    Route::delete('/clients/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'clientDestroy'])->name('clients.destroy');
+
+    // Partners
+    Route::get('/partners', [\App\Http\Controllers\Admin\CorporateController::class, 'partnersIndex'])->name('partners.index');
+    Route::post('/partners', [\App\Http\Controllers\Admin\CorporateController::class, 'partnerStore'])->name('partners.store');
+    Route::delete('/partners/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'partnerDestroy'])->name('partners.destroy');
+
+    // Team Members
+    Route::get('/team-members', [\App\Http\Controllers\Admin\CorporateController::class, 'teamMembersIndex'])->name('team-members.index');
+    Route::post('/team-members', [\App\Http\Controllers\Admin\CorporateController::class, 'teamMemberStore'])->name('team-members.store');
+    Route::delete('/team-members/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'teamMemberDestroy'])->name('team-members.destroy');
+
+    // FAQs
+    Route::get('/faqs', [\App\Http\Controllers\Admin\CorporateController::class, 'faqsIndex'])->name('faqs.index');
+    Route::post('/faqs', [\App\Http\Controllers\Admin\CorporateController::class, 'faqStore'])->name('faqs.store');
+    Route::delete('/faqs/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'faqDestroy'])->name('faqs.destroy');
+
+    // Job Departments
+    Route::get('/job-departments', [\App\Http\Controllers\Admin\CorporateController::class, 'jobDepartmentsIndex'])->name('job-departments.index');
+    Route::post('/job-departments', [\App\Http\Controllers\Admin\CorporateController::class, 'jobDepartmentStore'])->name('job-departments.store');
+    Route::delete('/job-departments/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'jobDepartmentDestroy'])->name('job-departments.destroy');
+
+    // Job Locations
+    Route::get('/job-locations', [\App\Http\Controllers\Admin\CorporateController::class, 'jobLocationsIndex'])->name('job-locations.index');
+    Route::post('/job-locations', [\App\Http\Controllers\Admin\CorporateController::class, 'jobLocationStore'])->name('job-locations.store');
+    Route::delete('/job-locations/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'jobLocationDestroy'])->name('job-locations.destroy');
+
+    // Careers
+    Route::get('/careers', [\App\Http\Controllers\Admin\CorporateController::class, 'careersIndex'])->name('careers.index');
+    Route::post('/careers', [\App\Http\Controllers\Admin\CorporateController::class, 'careerStore'])->name('careers.store');
+    Route::delete('/careers/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'careerDestroy'])->name('careers.destroy');
+
+    // Job Applications
+    Route::get('/job-applications', [\App\Http\Controllers\Admin\CorporateController::class, 'jobApplicationsIndex'])->name('job-applications.index');
+    Route::delete('/job-applications/{id}', [\App\Http\Controllers\Admin\CorporateController::class, 'jobApplicationDestroy'])->name('job-applications.destroy');
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
