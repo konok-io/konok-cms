@@ -59,54 +59,54 @@
    3. ADMIN PANEL RTL
    ========================================================= */
 
-/* Admin Wrapper - Keep sidebar on left in RTL too for admin panel */
+/* Admin Wrapper */
 [dir="rtl"] .admin-wrapper {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
-/* Admin Sidebar - Keep on left in RTL for admin panel */
+/* Admin Sidebar */
 [dir="rtl"] .admin-sidebar {
     left: 0;
     right: auto;
-    border-left: none;
-    border-right: 1px solid var(--admin-border);
+    border-left: 1px solid var(--admin-border);
+    border-right: none;
 }
 
 [dir="rtl"] .admin-sidebar .nav-link {
-    flex-direction: row;
+    flex-direction: row-reverse;
     text-align: right;
     border-left: 3px solid transparent;
     border-right: none;
 }
 
 [dir="rtl"] .admin-sidebar .nav-link i {
-    margin-right: 10px;
-    margin-left: 0;
+    margin-right: 0;
+    margin-left: 10px;
 }
 
 [dir="rtl"] .admin-sidebar .nav-link.active {
-    border-right: none;
-    border-left: 3px solid var(--admin-primary);
+    border-left: none;
+    border-right: 3px solid var(--admin-primary);
 }
 
 /* Admin Main Content */
 [dir="rtl"] .admin-content {
-    margin-left: var(--admin-sidebar-width);
-    margin-right: 0;
+    margin-left: 0;
+    margin-right: var(--admin-sidebar-width);
 }
 
 /* Admin Topbar */
 [dir="rtl"] .admin-topbar {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .admin-topbar .logo {
-    border-right: none;
-    border-left: 1px solid var(--admin-border);
+    border-left: none;
+    border-right: 1px solid var(--admin-border);
 }
 
 [dir="rtl"] .admin-topbar .nav {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .admin-topbar .dropdown-menu {
@@ -116,9 +116,9 @@
 /* Admin Sidebar Toggle - Mobile */
 @media (max-width: 991.98px) {
     [dir="rtl"] .admin-sidebar {
-        transform: translateX(-100%);
-        left: 0;
-        right: auto;
+        transform: translateX(100%);
+        left: auto;
+        right: 0;
     }
     
     [dir="rtl"] .admin-sidebar.show {
@@ -126,7 +126,7 @@
     }
     
     [dir="rtl"] .admin-content {
-        margin-left: 0;
+        margin-right: 0;
     }
 }
 
