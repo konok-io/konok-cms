@@ -30,11 +30,24 @@ class CompanyProfile extends Model
         'dark_logo',
         'favicon',
         'is_active',
+        // Home Page Fields
+        'hero_title',
+        'hero_description',
+        'hero_image',
+        'hero_button_text',
+        'hero_button_url',
+        'stat_projects',
+        'stat_clients',
+        'stat_team',
+        'stat_years',
+        'about_image',
+        'home_features',
     ];
 
     protected $casts = [
         'core_values' => 'array',
         'achievements' => 'array',
+        'home_features' => 'array',
         'is_active' => 'boolean',
     ];
 }

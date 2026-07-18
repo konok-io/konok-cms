@@ -46,13 +46,33 @@ class KonokCompanySeeder extends Seeder
         CompanyProfile::updateOrCreate(['id' => 1], [
             'company_name' => 'KEY OF NEXT ONLINE KNOWLEDGE',
             'short_name' => 'KONOK',
-            'tagline' => 'Empowering Businesses Through Technology Innovation',
-            'description' => 'KONOK is a leading technology solutions provider dedicated to helping businesses embrace digital transformation.',
-            'vision' => 'To be the most trusted technology partner for businesses worldwide.',
-            'mission' => 'To empower businesses with cutting-edge technology solutions.',
+            'tagline' => 'Transforming Ideas Into Digital Excellence',
+            'description' => '<p>KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation. With years of experience and a passion for innovation, we deliver exceptional results that drive growth and success.</p><p>Our team of experts combines deep technical knowledge with creative problem-solving to deliver solutions that truly make a difference. We believe in building long-term partnerships with our clients, understanding their unique challenges and delivering tailored solutions that exceed expectations.</p>',
+            'vision' => 'To be the most trusted technology partner for businesses worldwide, setting new standards of excellence in digital innovation.',
+            'mission' => 'To empower businesses with cutting-edge technology solutions that drive efficiency, growth, and competitive advantage.',
             'founded_year' => '2015',
             'employees_count' => 50,
             'is_active' => true,
+            // Home Page Fields
+            'hero_title' => 'Transforming Ideas Into Digital Excellence',
+            'hero_description' => 'We empower businesses through cutting-edge technology solutions, helping you navigate the digital landscape with confidence.',
+            'hero_image' => 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop',
+            'hero_button_text' => 'Explore Services',
+            'hero_button_url' => '/services',
+            // Stats
+            'stat_projects' => '500+',
+            'stat_clients' => '150+',
+            'stat_team' => '50+',
+            'stat_years' => '10+',
+            // About Image
+            'about_image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=450&fit=crop',
+            // Home Features (JSON)
+            'home_features' => json_encode([
+                ['icon' => 'fas fa-headset', 'title' => '24/7 Support'],
+                ['icon' => 'fas fa-users-cog', 'title' => 'Expert Team'],
+                ['icon' => 'fas fa-award', 'title' => 'Quality Assured'],
+                ['icon' => 'fas fa-clock', 'title' => 'On-Time Delivery'],
+            ]),
         ]);
     }
 
