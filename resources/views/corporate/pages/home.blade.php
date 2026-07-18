@@ -1,24 +1,21 @@
 @extends('corporate.layouts.app')
 
-@section('title', 'KONOK - Key of Next Online Knowledge')
+@section('title', 'KONOK - ' . ($companyProfile->tagline ?? 'Key of Next Online Knowledge'))
 
 @section('content')
 
-<!-- Hero Section -->
+<!-- Hero Section (Dynamic) -->
+@if($companyProfile->tagline || $companyProfile->description)
 <section class="hero-section">
     <div class="container">
         <div class="row align-items-center min-vh-100 py-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="hero-content pe-lg-5">
-                    <span class="hero-badge">
-                        <i class="fas fa-sparkles me-2"></i> Innovating for Tomorrow
-                    </span>
                     <h1 class="display-3 fw-bold mb-4">
-                        Transforming Ideas Into
-                        <span class="gradient-text">Digital Excellence</span>
+                        {{ $companyProfile->tagline ?? 'Digital Excellence' }}
                     </h1>
                     <p class="lead mb-5" style="color: var(--gray-600);">
-                        {{ $companyProfile->tagline ?? 'KEY OF NEXT ONLINE KNOWLEDGE - We empower businesses through cutting-edge technology solutions, helping you navigate the digital landscape with confidence.' }}
+                        {{ Str::limit($companyProfile->description ?? '', 200) }}
                     </p>
                     <div class="hero-buttons d-flex flex-wrap gap-3">
                         <a href="{{ route('front.services') }}" class="btn btn-primary-corporate btn-lg px-4">
@@ -30,66 +27,42 @@
                     </div>
                 </div>
             </div>
+            @if($companyProfile->about_image || $companyProfile->image)
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-image position-relative">
-                    <div class="hero-glow"></div>
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
-                         alt="KONOK Digital Solutions" 
+                    <img src="{{ asset($companyProfile->about_image ?? $companyProfile->image) }}" 
+                         alt="KONOK" 
                          class="img-fluid rounded-4" style="box-shadow: var(--shadow-xl);">
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </section>
+@endif
 
-<!-- About Section -->
+<!-- About Section (Dynamic from CompanyProfile) -->
+@if($companyProfile->description)
 <section class="about-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
         <div class="row align-items-center g-5">
+            @if($companyProfile->about_image)
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="about-image position-relative">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=450&fit=crop" 
-                         alt="About KONOK" 
+                    <img src="{{ asset($companyProfile->about_image) }}" 
+                         alt="About {{ $companyProfile->company_name ?? 'KONOK' }}" 
                          class="img-fluid rounded-3" style="box-shadow: var(--shadow-lg);">
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                <div class="about-content ps-lg-5">
-                    <span class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4" style="background: rgba(10, 132, 255, 0.08); color: var(--primary-color); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">
-                        <i class="fas fa-building"></i> About KONOK
-                    </span>
-                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">Empowering Businesses Through Technology</h2>
-                    <p style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
-                        {{ $companyProfile->description ?? 'KEY OF NEXT ONLINE KNOWLEDGE (KONOK) is a leading technology solutions provider dedicated to helping businesses embrace digital transformation.' }}
-                    </p>
-                    
-                    <div class="about-features d-flex flex-wrap gap-3 mt-5">
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
-                            <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <span style="font-weight: 600; color: var(--text-primary);">24/7 Support</span>
-                        </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
-                            <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <span style="font-weight: 600; color: var(--text-primary);">Expert Team</span>
-                        </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
-                            <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <span style="font-weight: 600; color: var(--text-primary);">Quality Assured</span>
-                        </div>
-                        <div class="feature-item d-flex align-items-center gap-3 p-3 rounded-2" style="background: var(--bg-card); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
-                            <div class="feature-icon d-flex align-items-center justify-content-center rounded-2" style="width: 44px; height: 44px; background: var(--success-bg); color: var(--success-color);">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <span style="font-weight: 600; color: var(--text-primary);">On-Time Delivery</span>
-                        </div>
+            @endif
+            <div class="col-lg-{{ $companyProfile->about_image ? '6' : '12' }}" data-aos="fade-left" data-aos-delay="200">
+                <div class="about-content {{ $companyProfile->about_image ? '' : 'text-center mx-auto' }}" style="{{ $companyProfile->about_image ? '' : 'max-width: 800px;' }}">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">
+                        {{ $companyProfile->company_name ?? 'About Us' }}
+                    </h2>
+                    <div style="color: var(--gray-600); font-size: 1.1rem; line-height: 1.8;">
+                        {!! $companyProfile->description !!}
                     </div>
-                    
                     <a href="{{ route('front.about') }}" class="btn btn-primary-corporate mt-5">
                         Learn More <i class="fas fa-arrow-right ms-2"></i>
                     </a>
@@ -98,11 +71,14 @@
         </div>
     </div>
 </section>
+@endif
 
-<!-- Vision & Mission Section -->
+<!-- Vision & Mission (Dynamic) -->
+@if($companyProfile->vision || $companyProfile->mission)
 <section class="section-padding" style="background: var(--bg-secondary);">
     <div class="container">
         <div class="row g-4">
+            @if($companyProfile->vision)
             <div class="col-lg-6" data-aos="fade-up">
                 <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-card); box-shadow: var(--shadow-md);">
                     <div class="card-body p-5">
@@ -112,12 +88,13 @@
                             </span>
                         </div>
                         <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Our Vision</h3>
-                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
-                            {{ $companyProfile->vision ?? 'To be the most trusted technology partner for businesses worldwide, setting new standards of excellence in digital innovation.' }}
-                        </p>
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">{!! $companyProfile->vision !!}</p>
                     </div>
                 </div>
             </div>
+            @endif
+            
+            @if($companyProfile->mission)
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="card h-100 border-0 rounded-3 overflow-hidden" style="background: var(--bg-card); box-shadow: var(--shadow-md);">
                     <div class="card-body p-5">
@@ -127,231 +104,173 @@
                             </span>
                         </div>
                         <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">Our Mission</h3>
-                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
-                            {{ $companyProfile->mission ?? 'To empower businesses with cutting-edge technology solutions that drive efficiency, growth, and competitive advantage.' }}
-                        </p>
+                        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">{!! $companyProfile->mission !!}</p>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </section>
+@endif
 
-<!-- Services Section -->
+<!-- Services Section (Dynamic) -->
+@if(isset($services) && $services->count() > 0)
 <section class="services-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">
-                <i class="fas fa-cogs me-2"></i> What We Offer
-            </span>
+            <span class="subtitle"><i class="fas fa-cogs me-2"></i> What We Offer</span>
             <h2>Our Services</h2>
             <p>Comprehensive technology solutions tailored to meet your business needs.</p>
         </div>
         
         <div class="row g-4">
-            @php
-                $services = [
-                    ['icon' => 'fas fa-code', 'title' => 'Web Development', 'desc' => 'Custom web applications built with modern frameworks and best practices.'],
-                    ['icon' => 'fas fa-mobile-alt', 'title' => 'Mobile Apps', 'desc' => 'Native and cross-platform mobile applications for iOS and Android.'],
-                    ['icon' => 'fas fa-cloud', 'title' => 'Cloud Solutions', 'desc' => 'Scalable cloud infrastructure and services for modern businesses.'],
-                    ['icon' => 'fas fa-brain', 'title' => 'AI Integration', 'desc' => 'Smart AI-powered solutions to automate and optimize your processes.'],
-                ];
-            @endphp
-            
-            @foreach($services as $index => $service)
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="service-card-v2 h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
-                        <div class="service-card-icon">
-                            <div class="icon-wrapper">
-                                <i class="{{ $service['icon'] }}"></i>
-                            </div>
-                        </div>
-                        <div class="service-card-content">
-                            <h4>{{ $service['title'] }}</h4>
-                            <p>{{ $service['desc'] }}</p>
-                            <a href="{{ route('front.services') }}" class="service-card-link">
-                                Learn More <i class="fas fa-arrow-right"></i>
-                            </a>
+            @foreach($services->take(4) as $index => $service)
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="service-card-v2 h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
+                    @if($service->image)
+                    <div class="service-card-image">
+                        <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" class="img-fluid">
+                    </div>
+                    @else
+                    <div class="service-card-icon">
+                        <div class="icon-wrapper">
+                            <i class="{{ $service->icon ?? 'fas fa-cogs' }}"></i>
                         </div>
                     </div>
+                    @endif
+                    <div class="service-card-content">
+                        <h4>{{ $service->name }}</h4>
+                        <p>{{ $service->short_description ?? Str::limit(strip_tags($service->description ?? ''), 80) }}</p>
+                        <a href="{{ route('front.service', $service->slug) }}" class="service-card-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
 </section>
+@endif
 
-<!-- Stats Section -->
-<section class="stats-section">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="stat-number counter" data-count="500">0</div>
-                    <div class="stat-label">Projects Delivered</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <div class="stat-number counter" data-count="150">0</div>
-                    <div class="stat-label">Happy Clients</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number counter" data-count="50">0</div>
-                    <div class="stat-label">Team Members</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="stat-number counter" data-count="10">0</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Team Section -->
+<!-- Team Section (Dynamic) -->
+@if(isset($leadership) && $leadership->count() > 0)
 <section class="team-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">
-                <i class="fas fa-users me-2"></i> Our People
-            </span>
-            <h2>Meet Our Leadership</h2>
+            <span class="subtitle"><i class="fas fa-users me-2"></i> Our People</span>
+            <h2>Meet Our Team</h2>
             <p>Dedicated professionals committed to driving innovation and excellence.</p>
         </div>
         
         <div class="row g-4">
-            @php
-                $teamMembers = [
-                    ['name' => 'Muhammad Rashed Hossain', 'title' => 'Founder & CEO', 'img' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face'],
-                    ['name' => 'Sarah Johnson', 'title' => 'Chief Technology Officer', 'img' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face'],
-                    ['name' => 'Michael Chen', 'title' => 'Director of Operations', 'img' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face'],
-                    ['name' => 'Emily Williams', 'title' => 'Head of Design', 'img' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face'],
-                ];
-            @endphp
-            
-            @foreach($teamMembers as $index => $member)
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
-                        <div class="team-image">
-                            <img src="{{ $member['img'] }}" alt="{{ $member['name'] }}">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h4>{{ $member['name'] }}</h4>
-                            <p class="designation">{{ $member['title'] }}</p>
+            @foreach($leadership->take(4) as $index => $member)
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
+                    <div class="team-image">
+                        @if($member->photo)
+                            <img src="{{ asset($member->photo) }}" alt="{{ $member->name }}">
+                        @else
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="{{ $member->name }}">
+                        @endif
+                        <div class="team-social">
+                            @if($member->linkedin)
+                                <a href="{{ $member->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            @endif
+                            @if($member->email)
+                                <a href="mailto:{{ $member->email }}"><i class="fas fa-envelope"></i></a>
+                            @endif
                         </div>
                     </div>
+                    <div class="team-info">
+                        <h4>{{ $member->name }}</h4>
+                        <p class="designation">{{ $member->designation }}</p>
+                    </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
 </section>
+@endif
 
-<!-- Testimonials Section -->
+<!-- Testimonials Section (Dynamic) -->
+@if(isset($testimonials) && $testimonials->count() > 0)
 <section class="testimonials-section section-padding" style="background: var(--bg-secondary);">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <span class="subtitle">
-                <i class="fas fa-quote-left me-2"></i> Testimonials
-            </span>
+            <span class="subtitle"><i class="fas fa-quote-left me-2"></i> Testimonials</span>
             <h2>What Our Clients Say</h2>
             <p>Hear what our clients have to say about working with us.</p>
         </div>
         
         <div class="row g-4">
-            @php
-                $testimonials = [
-                    [
-                        'content' => 'KONOK transformed our online presence completely. Their expertise in web development and dedication to quality exceeded our expectations.',
-                        'name' => 'Ahmed Rahman',
-                        'title' => 'CEO, TechStart Inc.',
-                        'img' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face'
-                    ],
-                    [
-                        'content' => 'The team at KONOK delivered our mobile app on time and with exceptional quality. Their attention to detail and customer service is outstanding.',
-                        'name' => 'Fatima Khan',
-                        'title' => 'Founder, HealthTech Solutions',
-                        'img' => 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face'
-                    ],
-                    [
-                        'content' => 'Working with KONOK was a game-changer for our business. Their cloud solutions helped us scale efficiently and reduce costs significantly.',
-                        'name' => 'David Lee',
-                        'title' => 'CTO, DataFlow Systems',
-                        'img' => 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face'
-                    ],
-                ];
-            @endphp
-            
-            @foreach($testimonials as $index => $testimonial)
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="testimonial-card h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
-                        <div class="testimonial-rating" style="color: var(--orange-color);">
-                            @for($i = 0; $i < 5; $i++)
-                                <i class="fas fa-star"></i>
-                            @endfor
-                        </div>
-                        <div class="testimonial-content">
-                            <p>{{ $testimonial['content'] }}</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="{{ $testimonial['img'] }}" alt="{{ $testimonial['name'] }}">
-                            <div class="author-info">
-                                <h5 style="color: var(--text-primary);">{{ $testimonial['name'] }}</h5>
-                                <span style="color: var(--gray-500);">{{ $testimonial['title'] }}</span>
-                            </div>
+            @foreach($testimonials->take(3) as $index => $testimonial)
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="testimonial-card h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
+                    <div class="testimonial-rating" style="color: var(--orange-color);">
+                        @for($i = 0; $i < 5; $i++)
+                            <i class="fas fa-star"></i>
+                        @endfor
+                    </div>
+                    <div class="testimonial-content">
+                        <p>{{ $testimonial->content }}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        @if($testimonial->image)
+                            <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}">
+                        @else
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="{{ $testimonial->name }}">
+                        @endif
+                        <div class="author-info">
+                            <h5 style="color: var(--text-primary);">{{ $testimonial->name }}</h5>
+                            <span style="color: var(--gray-500);">{{ $testimonial->position ?? '' }}</span>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
 </section>
+@endif
 
-<!-- CTA Section -->
-<section class="cta-section">
+<!-- Latest Blog Posts (Dynamic) -->
+@if(isset($blogs) && $blogs->count() > 0)
+<section class="blog-section section-padding" style="background: var(--bg-primary);">
     <div class="container">
-        <div class="cta-content text-center" data-aos="zoom-in">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how we can help you achieve your digital goals.</p>
-            <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate btn-lg">
-                Start Your Project <i class="fas fa-arrow-right ms-2"></i>
-            </a>
+        <div class="section-title" data-aos="fade-up">
+            <span class="subtitle"><i class="fas fa-blog me-2"></i> Latest Articles</span>
+            <h2>From Our Blog</h2>
+            <p>Stay updated with the latest news, tutorials, and insights.</p>
+        </div>
+        
+        <div class="row g-4">
+            @foreach($blogs->take(3) as $index => $blog)
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <article class="blog-card h-100">
+                    @if($blog->featured_image)
+                    <div class="blog-image">
+                        <img src="{{ asset($blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid">
+                    </div>
+                    @endif
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar me-1"></i>{{ $blog->published_at ? $blog->published_at->format('M d, Y') : $blog->created_at->format('M d, Y') }}</span>
+                        </div>
+                        <h4>{{ $blog->title }}</h4>
+                        <p>{{ Str::limit(strip_tags($blog->short_description ?? ''), 80) }}</p>
+                        <a href="{{ route('front.blog.show', $blog->slug) }}" class="blog-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
-
-<style>
-    .hero-glow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(10, 132, 255, 0.15) 0%, rgba(191, 90, 242, 0.1) 50%, transparent 70%);
-        filter: blur(60px);
-        z-index: -1;
-    }
-</style>
+@endif
 
 @endsection
