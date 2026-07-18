@@ -66,6 +66,74 @@
     <!-- Corporate Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/corporate.css') }}">
 
+    <style>
+        /* Header Icon Button */
+        .header-icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--gray-300);
+            background: var(--light-color);
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .header-icon-btn:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+        }
+        
+        /* Language Menu */
+        .lang-menu {
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            padding: 8px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .lang-menu .dropdown-item {
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.9rem;
+        }
+        
+        .lang-menu .dropdown-item:hover {
+            background: var(--gray-100);
+        }
+        
+        /* Search Modal */
+        .search-modal .modal-content {
+            border-radius: 16px;
+            border: none;
+        }
+        
+        .search-modal .modal-header {
+            border-bottom: 1px solid var(--gray-200);
+            padding: 20px 24px;
+        }
+        
+        .search-modal .modal-body {
+            padding: 24px;
+        }
+        
+        .search-input {
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 1rem;
+            border: 2px solid var(--gray-200);
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+        }
+    </style>
+
     <script>
       document.documentElement.setAttribute('dir', 'ltr');
     </script>
@@ -210,7 +278,23 @@
                         </li>
                     </ul>
                     
-                    <div class="nav-cta ms-lg-3">
+                    <div class="nav-cta ms-lg-3 d-flex align-items-center gap-2">
+                        <!-- Search Icon -->
+                        <button class="header-icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        
+                        <!-- Language Switcher -->
+                        <div class="dropdown">
+                            <button class="header-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Language">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end lang-menu" style="min-width: 150px;">
+                                <li><a class="dropdown-item" href="#" onclick="doGTranslate('en|en');return false;"><img src="//www.google.com/images/cleardot.png" alt="English" width="16" height="16" style="background:url(//www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_16x16_tt.png) no-repeat;background-size:16px;display:inline-block;margin-right:8px;">English</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="doGTranslate('en|bn');return false;"><img src="//www.google.com/images/cleardot.png" alt="Bengali" width="16" height="16" style="background:url(//www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_16x16_tt.png) no-repeat;background-size:16px;display:inline-block;margin-right:8px;">বাংলা</a></li>
+                            </ul>
+                        </div>
+                        
                         <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate">Get Started</a>
                     </div>
                 </div>
@@ -224,6 +308,28 @@
 
     <!-- Footer -->
     @include('corporate.partials.footer')
+
+    <!-- Search Modal -->
+    <div class="modal fade search-modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('front.blog') }}" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control search-input" placeholder="Search...">
+                            <button class="btn btn-primary-corporate" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top -->
     <a href="#" class="back-to-top" aria-label="Back to top">
@@ -258,6 +364,32 @@
             once: true,
             offset: 100
         });
+    </script>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,bn',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- GTranslate Language Switcher -->
+    <script>
+        function doGTranslate(lang_pair) {
+            if(lang_pair.value) lang_pair = lang_pair.value;
+            var lang = lang_pair.split('|')[1];
+            var plang = location.hostname.indexOf(lang) != -1 ? lang : location.hostname.split('.')[0];
+            plang = 'en'; // Force English
+            location.href = 'https://' + location.hostname + '/?googtrans=' + lang_pair + '&lang=' + lang;
+            location.reload();
+        }
     </script>
 </body>
 </html>
