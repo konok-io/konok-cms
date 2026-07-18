@@ -35,9 +35,9 @@
         </div>
         @endif
         
-        <div class="row">
+        <div class="row g-4">
             @forelse($projects as $index => $project)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                     <div class="project-card h-100">
                         @if($project->featured_image)
                         <div class="project-image">
@@ -47,6 +47,10 @@
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                             </div>
+                        </div>
+                        @else
+                        <div class="project-image" style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-project-diagram fa-4x text-white opacity-50"></i>
                         </div>
                         @endif
                         <div class="project-content">
@@ -63,7 +67,11 @@
                 </div>
             @empty
                 <div class="col-12 text-center">
-                    <p class="text-muted">No projects available at the moment. Please check back later.</p>
+                    <div class="empty-state py-5">
+                        <i class="fas fa-folder-open fa-4x text-muted mb-4"></i>
+                        <h4>Projects Coming Soon</h4>
+                        <p class="text-muted">We're working on exciting projects. Please check back later.</p>
+                    </div>
                 </div>
             @endforelse
         </div>

@@ -27,7 +27,7 @@
         
         <!-- Service Category Tabs -->
         @if($category === null && isset($categories) && $categories->count() > 0)
-        <ul class="nav nav-pills mb-4 justify-content-center" id="serviceTabs" role="tablist">
+        <ul class="nav nav-pills mb-5 justify-content-center" id="serviceTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">
                     All Services
@@ -44,23 +44,38 @@
         </ul>
         @endif
         
-        <div class="row">
+        <div class="row g-4">
             @forelse($services as $index => $service)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="service-card h-100">
-                        <div class="service-icon">
-                            <i class="{{ $service->icon ?? 'fas fa-cogs' }}"></i>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                    <div class="service-card-v2 h-100">
+                        @if($service->image)
+                        <div class="service-card-image">
+                            <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" class="img-fluid">
+                            <div class="service-card-overlay"></div>
                         </div>
-                        <h4>{{ $service->name }}</h4>
-                        <p>{{ $service->short_description ?? Str::limit(strip_tags($service->description ?? ''), 120) }}</p>
-                        <a href="{{ route('front.service', $service->slug) }}" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        @else
+                        <div class="service-card-icon">
+                            <div class="icon-wrapper">
+                                <i class="{{ $service->icon ?? 'fas fa-cogs' }}"></i>
+                            </div>
+                        </div>
+                        @endif
+                        <div class="service-card-content">
+                            <h4>{{ $service->name }}</h4>
+                            <p>{{ $service->short_description ?? Str::limit(strip_tags($service->description ?? ''), 120) }}</p>
+                            <a href="{{ route('front.service', $service->slug) }}" class="service-card-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             @empty
                 <div class="col-12 text-center">
-                    <p class="text-muted">No services available at the moment. Please check back later.</p>
+                    <div class="empty-state py-5">
+                        <i class="fas fa-tools fa-4x text-muted mb-4"></i>
+                        <h4>Services Coming Soon</h4>
+                        <p class="text-muted">We're preparing amazing services for you. Please check back later.</p>
+                    </div>
                 </div>
             @endforelse
         </div>

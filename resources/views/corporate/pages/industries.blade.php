@@ -23,10 +23,10 @@
             <p>We deliver specialized technology solutions across diverse industries.</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             @forelse($industries as $index => $industry)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="industry-card h-100 text-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                    <div class="industry-card h-100">
                         <div class="industry-icon">
                             <i class="{{ $industry->icon ?? 'fas fa-industry' }}"></i>
                         </div>
@@ -39,7 +39,11 @@
                 </div>
             @empty
                 <div class="col-12 text-center">
-                    <p class="text-muted">No industries available at the moment. Please check back later.</p>
+                    <div class="empty-state py-5">
+                        <i class="fas fa-building fa-4x text-muted mb-4"></i>
+                        <h4>Industries Coming Soon</h4>
+                        <p class="text-muted">We're expanding our services to new industries. Please check back later.</p>
+                    </div>
                 </div>
             @endforelse
         </div>

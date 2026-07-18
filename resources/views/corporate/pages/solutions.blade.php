@@ -23,9 +23,9 @@
             <p>Discover our comprehensive suite of technology solutions.</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             @forelse($solutions as $index => $solution)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                     <div class="solution-card h-100">
                         <div class="solution-icon">
                             <i class="{{ $solution->icon ?? 'fas fa-lightbulb' }}"></i>
@@ -46,7 +46,11 @@
                 </div>
             @empty
                 <div class="col-12 text-center">
-                    <p class="text-muted">No solutions available at the moment. Please check back later.</p>
+                    <div class="empty-state py-5">
+                        <i class="fas fa-cogs fa-4x text-muted mb-4"></i>
+                        <h4>Solutions Coming Soon</h4>
+                        <p class="text-muted">We're developing new solutions. Please check back later.</p>
+                    </div>
                 </div>
             @endforelse
         </div>
