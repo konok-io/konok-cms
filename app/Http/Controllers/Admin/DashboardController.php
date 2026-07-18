@@ -10,6 +10,10 @@ use App\Models\Service;
 use App\Models\Skill;
 use App\Models\Testimonial;
 use App\Models\Visitor;
+use App\Models\TeamMember;
+use App\Models\Partner;
+use App\Models\Client;
+use App\Models\Subscriber;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -26,10 +30,15 @@ class DashboardController extends Controller
             'unread_messages' => ContactMessage::unread()->count(),
             'visitors'        => Visitor::count(),
             'visitors_today'  => Visitor::whereDate('visited_date', today())->count(),
+            'team_members'    => TeamMember::count(),
+            'partners'        => Partner::count(),
+            'clients'         => Client::count(),
+            'subscribers'     => Subscriber::count(),
         ];
 
         $recentMessages = ContactMessage::latest()->take(5)->get();
         $recentProjects = Project::latest()->take(5)->get();
+        $recentBlogs = Blog::with('category')->latest()->take(5)->get();
 
         $visitorChart = Visitor::select(
                 DB::raw('DATE(visited_date) as date'),
@@ -46,14 +55,34 @@ class DashboardController extends Controller
             ->take(6)
             ->get();
 
+        // Page views chart (last 7 days)
+        $pageViewsChart = Visitor::select(
+                DB::raw('DATE(visited_date) as date'),
+                DB::raw('SUM(page_views) as total')
+            )
+            ->where('visited_date', '>=', now()->subDays(6)->toDateString())
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
+
+        // Device breakdown
+        $deviceStats = Visitor::select('device', DB::raw('COUNT(*) as total'))
+            ->groupBy('device')
+            ->orderByDesc('total')
+            ->take(4)
+            ->get();
+
         $license = $this->licenseInfo();
 
         return view('admin.dashboard.index', compact(
             'stats',
             'recentMessages',
             'recentProjects',
+            'recentBlogs',
             'visitorChart',
             'browserStats',
+            'pageViewsChart',
+            'deviceStats',
             'license'
         ));
     }

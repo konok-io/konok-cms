@@ -220,6 +220,20 @@ body.admin-body {
   color: #fff;
   filter: brightness(0.95);
 }
+.btn-primary-corporate {
+  background-color: var(--admin-primary);
+  border-color: var(--admin-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.btn-primary-corporate:hover {
+  background-color: var(--admin-primary-dark);
+  border-color: var(--admin-primary-dark);
+  color: #fff;
+}
 
 /* ---------------- Tables ---------------- */
 .table-admin thead th {
