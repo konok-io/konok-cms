@@ -32,9 +32,14 @@ class Testimonial extends Model
 
     public function getPhotoUrlAttribute(): string
     {
-        return $this->photo
-            ? asset('storage/' . $this->photo)
-            : 'https://ui-avatars.com/api/?name=' . urlencode($this->client_name) . '&background=2563EB&color=fff';
+        if ($this->photo) {
+            // Check if it's an external URL
+            if (str_starts_with($this->photo, 'http://') || str_starts_with($this->photo, 'https://')) {
+                return $this->photo;
+            }
+            return asset('storage/' . $this->photo);
+        }
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->client_name) . '&background=2563EB&color=fff&size=100';
     }
 
     public function scopeActive($query)

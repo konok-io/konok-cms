@@ -210,22 +210,18 @@
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                 <div class="testimonial-card h-100" style="background: var(--bg-card); border: 1px solid var(--gray-200);">
                     <div class="testimonial-rating" style="color: var(--orange-color);">
-                        @for($i = 0; $i < 5; $i++)
+                        @for($i = 0; $i < ($testimonial->rating ?? 5); $i++)
                             <i class="fas fa-star"></i>
                         @endfor
                     </div>
                     <div class="testimonial-content">
-                        <p>{{ $testimonial->content }}</p>
+                        <p>{{ $testimonial->review }}</p>
                     </div>
                     <div class="testimonial-author">
-                        @if($testimonial->image)
-                            <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}">
-                        @else
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="{{ $testimonial->name }}">
-                        @endif
+                        <img src="{{ $testimonial->photo_url }}" alt="{{ $testimonial->client_name }}">
                         <div class="author-info">
-                            <h5 style="color: var(--text-primary);">{{ $testimonial->name }}</h5>
-                            <span style="color: var(--gray-500);">{{ $testimonial->position ?? '' }}</span>
+                            <h5 style="color: var(--text-primary);">{{ $testimonial->client_name }}</h5>
+                            <span style="color: var(--gray-500);">{{ $testimonial->company ?? '' }}</span>
                         </div>
                     </div>
                 </div>
