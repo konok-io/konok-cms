@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,37 +11,51 @@
 
     {{-- Bootstrap 5 --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" id="bs-ltr">
-    <script>
-      (function(){try{
-        var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);var l=m?m[1]:'';
-        var rtl=['ar','ur','fa','he','ps','sd'];
-        if(rtl.indexOf(l)>=0){var ltr=document.getElementById('bs-ltr');if(ltr) ltr.href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css';}
-      }catch(e){}})();
-    </script>
+    
     {{-- Font Awesome 6 --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     {{-- DataTables with Bootstrap 5 styling --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
 
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
+    
+    {{-- RTL CSS --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/rtl.css') }}" id="rtl-css" disabled>
 
     <script>
-      // RTL support for RTL languages
-      (function(){try{var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);var l=m?m[1]:'en';var rtl=['ar','ur','fa','he','ps','sd'];document.documentElement.setAttribute('dir',rtl.indexOf(l)>=0?'rtl':'ltr');}catch(e){}})();
+      // RTL and Dark Mode detection
+      (function(){
+        try{
+          var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);
+          var l=m?m[1]:'';
+          var rtl=['ar','ur','fa','he','ps','sd'];
+          var isRtl=rtl.indexOf(l)>=0;
+          if(isRtl){
+            var ltr=document.getElementById('bs-ltr');
+            if(ltr) ltr.href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css';
+            document.documentElement.setAttribute('dir','rtl');
+            document.documentElement.classList.add('rtl');
+            var rtlCss=document.getElementById('rtl-css');
+            if(rtlCss){rtlCss.disabled=false;}
+          } else {
+            document.documentElement.setAttribute('dir','ltr');
+            document.documentElement.classList.add('ltr');
+          }
+        }catch(e){}
+      })();
     </script>
     <style>
       /* language switch */
       .gtranslate-wrap{position:relative}
       .gt-btn{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;font-weight:500;color:#333;background:#fff;border:1px solid #e2e2e8;border-radius:20px;padding:7px 14px;cursor:pointer;transition:border-color .18s,background .18s}
-      {width:38px;height:38px;justify-content:center;border-radius:50%;padding:0}
       .gt-btn:hover{border-color:#0A84FF}
       .lang-menu{position:absolute;top:44px;right:0;z-index:1050;background:#fff;border:1px solid #e2e2e8;border-radius:12px;padding:6px;display:none;box-shadow:0 24px 60px -30px rgba(0,0,0,.3);max-height:360px;overflow:auto;min-width:170px}
       body.gt-open .lang-menu{display:block}
       .lang-menu button{display:block;width:100%;text-align:left;background:none;border:0;color:#333;font-size:14.5px;padding:9px 14px;border-radius:8px;cursor:pointer}
-      .lang-menu button:hover{background:#f4f4f9}
       .goog-te-banner-frame,.skiptranslate iframe{display:none!important}
       body{top:0!important}
       font font{background:transparent!important;box-shadow:none!important}
+      .lang-menu button:hover{background:#f4f4f9}
     </style>
     @stack('styles')
 </head>
@@ -273,9 +287,23 @@
     document.body.classList.remove('gt-open');
     var host = location.hostname;
     var val = '/en/' + lang;
+    var rtl=['ar','ur','fa','he','ps','sd'];
     document.cookie = 'googtrans=' + val + ';path=/';
     document.cookie = 'googtrans=' + val + ';path=/;domain=' + host;
     document.cookie = 'googtrans=' + val + ';path=/;domain=.' + host;
+    if(rtl.indexOf(lang)>=0){
+      document.documentElement.setAttribute('dir','rtl');
+      document.documentElement.classList.remove('ltr');
+      document.documentElement.classList.add('rtl');
+      var rtlCss=document.getElementById('rtl-css');
+      if(rtlCss){rtlCss.disabled=false;}
+    } else {
+      document.documentElement.setAttribute('dir','ltr');
+      document.documentElement.classList.remove('rtl');
+      document.documentElement.classList.add('ltr');
+      var rtlCss=document.getElementById('rtl-css');
+      if(rtlCss){rtlCss.disabled=true;}
+    }
     if(lang === 'en'){
       document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
       document.cookie = 'googtrans=;path=/;domain=' + host + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';

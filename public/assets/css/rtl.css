@@ -1,0 +1,982 @@
+/* =========================================================
+   RTL (Right-to-Left) Support Stylesheet
+   Complete RTL conversion for Arabic Language
+   ========================================================= */
+
+/* =========================================================
+   1. BASE RTL SETTINGS
+   ========================================================= */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* =========================================================
+   2. BOOTSTRAP RTL CONVERSIONS
+   ========================================================= */
+
+/* Margin Conversions */
+[dir="rtl"] .ms-0 { margin-left: 0 !important; margin-right: 0 !important; }
+[dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .ms-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .ms-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .ms-4 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .ms-5 { margin-left: 0 !important; margin-right: 3rem !important; }
+[dir="rtl"] .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+
+[dir="rtl"] .me-0 { margin-right: 0 !important; margin-left: 0 !important; }
+[dir="rtl"] .me-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+[dir="rtl"] .me-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+[dir="rtl"] .me-3 { margin-right: 0 !important; margin-left: 1rem !important; }
+[dir="rtl"] .me-4 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+[dir="rtl"] .me-5 { margin-right: 0 !important; margin-left: 3rem !important; }
+[dir="rtl"] .me-auto { margin-right: auto !important; margin-left: 0 !important; }
+
+/* Padding Conversions */
+[dir="rtl"] .ps-0 { padding-left: 0 !important; padding-right: 0 !important; }
+[dir="rtl"] .ps-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+[dir="rtl"] .ps-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+[dir="rtl"] .ps-3 { padding-left: 0 !important; padding-right: 1rem !important; }
+[dir="rtl"] .ps-4 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+[dir="rtl"] .ps-5 { padding-left: 0 !important; padding-right: 3rem !important; }
+
+[dir="rtl"] .pe-0 { padding-right: 0 !important; padding-left: 0 !important; }
+[dir="rtl"] .pe-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+[dir="rtl"] .pe-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+[dir="rtl"] .pe-3 { padding-right: 0 !important; padding-left: 1rem !important; }
+[dir="rtl"] .pe-4 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+[dir="rtl"] .pe-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+
+/* Float Conversions */
+[dir="rtl"] .float-start { float: right !important; }
+[dir="rtl"] .float-end { float: left !important; }
+
+/* Text Alignment */
+[dir="rtl"] .text-start { text-align: right !important; }
+[dir="rtl"] .text-end { text-align: left !important; }
+
+/* =========================================================
+   3. ADMIN PANEL RTL
+   ========================================================= */
+
+/* Admin Wrapper */
+[dir="rtl"] .admin-wrapper {
+    flex-direction: row-reverse;
+}
+
+/* Admin Sidebar */
+[dir="rtl"] .admin-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--admin-border);
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .admin-sidebar .nav-link {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .admin-sidebar .nav-link i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .admin-sidebar .nav-link.active {
+    border-left: none;
+    border-right: 3px solid var(--admin-primary);
+}
+
+[dir="rtl"] .admin-sidebar .nav-link .arrow {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .admin-sidebar .nav-link .arrow.collapsed {
+    transform: rotate(0deg);
+}
+
+/* Admin Main Content */
+[dir="rtl"] .admin-main {
+    margin-right: 260px;
+    margin-left: 0;
+}
+
+/* Admin Topbar */
+[dir="rtl"] .admin-topbar {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .admin-topbar .logo {
+    border-left: none;
+    border-right: 1px solid var(--admin-border);
+}
+
+[dir="rtl"] .admin-topbar .nav {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .admin-topbar .dropdown-menu {
+    text-align: right;
+}
+
+/* =========================================================
+   4. FORMS RTL
+   ========================================================= */
+
+[dir="rtl"] .form-label,
+[dir="rtl"] label {
+    text-align: right;
+}
+
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select {
+    text-align: right;
+}
+
+[dir="rtl"] .input-group {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .input-group-text {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+[dir="rtl"] .input-group .form-control:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+[dir="rtl"] .input-group .form-control:not(:first-child):not(:last-child),
+[dir="rtl"] .input-group .form-select:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+[dir="rtl"] .input-group .form-control:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+[dir="rtl"] .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: 0;
+    margin-right: -1px;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+/* Validation Messages */
+[dir="rtl"] .invalid-feedback {
+    text-align: right;
+}
+
+/* Select2 RTL */
+[dir="rtl"] .select2-container--default .select2-selection--single {
+    text-align: right;
+}
+
+[dir="rtl"] .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: auto;
+    left: 1px;
+}
+
+[dir="rtl"] .select2-container--default .select2-results__option {
+    text-align: right;
+}
+
+[dir="rtl"] .select2-container--default .select2-search--dropdown .select2-search__field {
+    text-align: right;
+}
+
+/* TomSelect RTL */
+[dir="rtl"] .ts-wrapper .ts-control {
+    text-align: right;
+}
+
+[dir="rtl"] .ts-wrapper .ts-control input {
+    text-align: right;
+}
+
+/* =========================================================
+   5. TABLES RTL (DataTables)
+   ========================================================= */
+
+[dir="rtl"] .table {
+    text-align: right;
+}
+
+[dir="rtl"] .table th,
+[dir="rtl"] .table td {
+    text-align: right;
+}
+
+/* DataTables Specific */
+[dir="rtl"] .dataTables_wrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .dataTables_wrapper .dataTables_length {
+    float: right;
+}
+
+[dir="rtl"] .dataTables_wrapper .dataTables_filter {
+    float: left;
+    text-align: left;
+}
+
+[dir="rtl"] .dataTables_wrapper .dataTables_filter input {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] .dataTables_wrapper .dataTables_paginate {
+    float: left;
+}
+
+[dir="rtl"] .dataTables_wrapper .dataTables_info {
+    float: right;
+}
+
+[dir="rtl"] .paginate_button.previous:before {
+    content: "\f054" !important;
+}
+
+[dir="rtl"] .paginate_button.next:before {
+    content: "\f053" !important;
+}
+
+/* =========================================================
+   6. MODALS RTL
+   ========================================================= */
+
+[dir="rtl"] .modal-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .modal-header .btn-close {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .modal-footer {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+/* =========================================================
+   7. BUTTONS RTL
+   ========================================================= */
+
+[dir="rtl"] .btn i,
+[dir="rtl"] .btn .fa,
+[dir="rtl"] .btn .fas,
+[dir="rtl"] .btn .fab,
+[dir="rtl"] .btn .far,
+[dir="rtl"] .btn .fal,
+[dir="rtl"] .btn .fad {
+    margin-left: 0.25rem;
+    margin-right: 0;
+}
+
+[dir="rtl"] .btn-group > .btn {
+    border-radius: 0 !important;
+}
+
+[dir="rtl"] .btn-group > .btn:first-child {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+
+[dir="rtl"] .btn-group > .btn:last-child {
+    border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+[dir="rtl"] .btn-group > .btn:not(:first-child):not(:last-child) {
+    border-radius: 0 !important;
+}
+
+/* =========================================================
+   8. CARDS RTL
+   ========================================================= */
+
+[dir="rtl"] .card-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .card-header .btn {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* =========================================================
+   9. NAVIGATION RTL
+   ========================================================= */
+
+[dir="rtl"] .navbar-brand {
+    margin-right: 0;
+}
+
+[dir="rtl"] .nav-item {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-link i {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Dropdowns */
+[dir="rtl"] .dropdown-menu {
+    text-align: right;
+}
+
+[dir="rtl"] .dropdown-item {
+    text-align: right;
+}
+
+[dir="rtl"] .dropdown-toggle::after {
+    margin-left: 0;
+    margin-right: 0.255em;
+}
+
+[dir="rtl"] .dropdown-menu-end {
+    --bs-position: start;
+}
+
+[dir="rtl"] .dropdown-menu-start {
+    --bs-position: end;
+}
+
+/* =========================================================
+   10. BREADCRUMBS RTL
+   ========================================================= */
+
+[dir="rtl"] .breadcrumb {
+    flex-direction: row-reverse;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "\f104" !important;
+    float: right;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
+    padding-right: 0.5rem;
+}
+
+/* =========================================================
+   11. ALERTS & TOASTS RTL
+   ========================================================= */
+
+[dir="rtl"] .alert {
+    text-align: right;
+}
+
+[dir="rtl"] .toast-container {
+    top: 1rem;
+    left: 1rem;
+    right: auto;
+}
+
+/* =========================================================
+   12. BADGES RTL
+   ========================================================= */
+
+[dir="rtl"] .badge {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+/* =========================================================
+   13. LIST GROUP RTL
+   ========================================================= */
+
+[dir="rtl"] .list-group {
+    padding-right: 0;
+}
+
+[dir="rtl"] .list-group-item {
+    text-align: right;
+}
+
+/* =========================================================
+   14. TABS RTL
+   ========================================================= */
+
+[dir="rtl"] .nav-tabs {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-tabs .nav-link {
+    text-align: right;
+}
+
+/* =========================================================
+   15. PROGRESS BARS RTL
+   ========================================================= */
+
+[dir="rtl"] .progress-bar {
+    direction: ltr;
+}
+
+/* =========================================================
+   16. ACCORDION RTL
+   ========================================================= */
+
+[dir="rtl"] .accordion-button {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .accordion-button::after {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .accordion-button.collapsed::after {
+    margin-right: auto;
+}
+
+/* =========================================================
+   17. PAGINATION RTL
+   ========================================================= */
+
+[dir="rtl"] .pagination {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .page-link {
+    text-align: center;
+}
+
+/* =========================================================
+   18. CHART.JS RTL
+   ========================================================= */
+
+[dir="rtl"] canvas {
+    direction: ltr;
+}
+
+/* =========================================================
+   19. SWEETALERT RTL
+   ========================================================= */
+
+[dir="rtl"] .swal2-container {
+    direction: rtl;
+}
+
+[dir="rtl"] .swal2-actions {
+    flex-direction: row-reverse;
+}
+
+/* =========================================================
+   20. FLATPICKR RTL
+   ========================================================= */
+
+[dir="rtl"] .flatpickr-calendar {
+    direction: rtl;
+}
+
+[dir="rtl"] .flatpickr-calendar .flatpickr-month {
+    text-align: right;
+}
+
+[dir="rtl"] .flatpickr-calendar .numInput {
+    direction: ltr;
+}
+
+/* =========================================================
+   21. WYSIWYG EDITORS RTL
+   ========================================================= */
+
+[dir="rtl"] .ql-editor {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .ql-toolbar {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .ql-snow .ql-picker {
+    direction: rtl;
+}
+
+/* =========================================================
+   22. ADMIN LOGIN/REGISTER RTL
+   ========================================================= */
+
+[dir="rtl"] .admin-login-wrap {
+    direction: rtl;
+}
+
+[dir="rtl"] .admin-login-card {
+    text-align: right;
+}
+
+[dir="rtl"] .form-label-admin {
+    text-align: right;
+    display: block;
+}
+
+[dir="rtl"] .admin-login-card .form-control {
+    text-align: right;
+}
+
+[dir="rtl"] .form-check {
+    padding-left: 0;
+    padding-right: 1.25rem;
+}
+
+[dir="rtl"] .form-check .form-check-input {
+    margin-left: 0;
+    margin-right: -1.25rem;
+    float: right;
+}
+
+/* =========================================================
+   23. ADMIN DASHBOARD RTL
+   ========================================================= */
+
+[dir="rtl"] .stat-card {
+    text-align: right;
+}
+
+[dir="rtl"] .stat-card .stat-icon {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+[dir="rtl"] .admin-card .card-header-custom {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .admin-card .card-header-custom .btn {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .admin-page-header {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+/* =========================================================
+   24. ADMIN STATISTICS ROW
+   ========================================================= */
+
+[dir="rtl"] .row {
+    direction: rtl;
+}
+
+/* =========================================================
+   25. ADMIN TABLE IMPROVEMENTS
+   ========================================================= */
+
+[dir="rtl"] .table-admin thead th {
+    text-align: right;
+}
+
+[dir="rtl"] .table-admin tbody td {
+    text-align: right;
+}
+
+[dir="rtl"] .table-admin .actions {
+    text-align: left;
+}
+
+[dir="rtl"] .table-admin .actions .btn {
+    margin-left: 0.25rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   26. ADMIN FORM PAGES
+   ========================================================= */
+
+[dir="rtl"] .admin-form-section {
+    text-align: right;
+}
+
+[dir="rtl"] .admin-form-section .form-group {
+    text-align: right;
+}
+
+[dir="rtl"] .file-upload-wrapper {
+    text-align: right;
+}
+
+/* =========================================================
+   27. MOBILE RESPONSIVE RTL
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+    [dir="rtl"] .admin-sidebar {
+        transform: translateX(-100%);
+        left: auto;
+        right: 0;
+    }
+    
+    [dir="rtl"] .admin-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    [dir="rtl"] .admin-main {
+        margin-right: 0;
+    }
+}
+
+/* =========================================================
+   28. CUSTOM SCROLLBAR RTL
+   ========================================================= */
+
+[dir="rtl"] ::-webkit-scrollbar {
+    direction: rtl;
+}
+
+/* =========================================================
+   29. FOOTER RTL
+   ========================================================= */
+
+[dir="rtl"] .footer {
+    text-align: right;
+}
+
+[dir="rtl"] .footer-links {
+    text-align: right;
+}
+
+[dir="rtl"] .footer-social {
+    text-align: left;
+}
+
+[dir="rtl"] .footer-contact {
+    text-align: right;
+}
+
+/* =========================================================
+   30. HERO SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .hero-section {
+    text-align: right;
+}
+
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+[dir="rtl"] .hero-buttons {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .hero-badge {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-image {
+    order: -1;
+}
+
+/* =========================================================
+   31. ABOUT SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .about-content {
+    text-align: right;
+}
+
+[dir="rtl"] .about-features {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .feature-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .feature-icon {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   32. SERVICE CARDS RTL
+   ========================================================= */
+
+[dir="rtl"] .service-card {
+    text-align: right;
+}
+
+[dir="rtl"] .service-card-content {
+    text-align: right;
+}
+
+[dir="rtl"] .service-icon {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   33. TEAM SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .team-member {
+    text-align: right;
+}
+
+[dir="rtl"] .team-social {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .team-social a {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   34. TESTIMONIAL RTL
+   ========================================================= */
+
+[dir="rtl"] .testimonial-content {
+    text-align: right;
+}
+
+[dir="rtl"] .testimonial-author {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .testimonial-author-info {
+    text-align: right;
+}
+
+/* =========================================================
+   35. CONTACT SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .contact-info {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-form {
+    text-align: right;
+}
+
+/* =========================================================
+   36. PRICING TABLE RTL
+   ========================================================= */
+
+[dir="rtl"] .pricing-card {
+    text-align: right;
+}
+
+[dir="rtl"] .pricing-features {
+    text-align: right;
+    padding-right: 0;
+}
+
+[dir="rtl"] .pricing-features li {
+    flex-direction: row-reverse;
+}
+
+/* =========================================================
+   37. FAQ SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .faq-item {
+    text-align: right;
+}
+
+[dir="rtl"] .faq-question {
+    flex-direction: row-reverse;
+}
+
+/* =========================================================
+   38. BLOG SECTION RTL
+   ========================================================= */
+
+[dir="rtl"] .blog-card {
+    text-align: right;
+}
+
+[dir="rtl"] .blog-meta {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .blog-category {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   39. PORTFOLIO/GALLERY RTL
+   ========================================================= */
+
+[dir="rtl"] .portfolio-filters {
+    text-align: right;
+}
+
+[dir="rtl"] .portfolio-item {
+    text-align: right;
+}
+
+[dir="rtl"] .portfolio-overlay {
+    text-align: right;
+}
+
+/* =========================================================
+   40. LANGUAGE SWITCHER RTL
+   ========================================================= */
+
+[dir="rtl"] .gtranslate-wrap {
+    direction: rtl;
+}
+
+[dir="rtl"] .gt-btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-menu {
+    right: auto;
+    left: 0;
+    text-align: right;
+}
+
+/* =========================================================
+   41. SIDEBAR TOGGLE RTL (Mobile)
+   ========================================================= */
+
+[dir="rtl"] .sidebar-toggle {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* =========================================================
+   42. UTILITY CLASSES RTL
+   ========================================================= */
+
+/* Border Radius Fixes */
+[dir="rtl"] .rounded-start {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+}
+
+[dir="rtl"] .rounded-end {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: var(--bs-border-radius) !important;
+    border-bottom-left-radius: var(--bs-border-radius) !important;
+}
+
+/* Shadow Fixes */
+[dir="rtl"] .shadow-start {
+    box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   43. LOADING SPINNER RTL
+   ========================================================= */
+
+[dir="rtl"] .spinner-border {
+    border-right-color: transparent;
+    border-left-color: currentColor;
+}
+
+/* =========================================================
+   44. TIMELINE RTL
+   ========================================================= */
+
+[dir="rtl"] .timeline {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+[dir="rtl"] .timeline-item {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .timeline-marker {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/* =========================================================
+   45. WIZARD/STEPPER RTL
+   ========================================================= */
+
+[dir="rtl"] .stepper {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .stepper-step {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .stepper-connector {
+    flex: 1;
+}
+
+/* =========================================================
+   46. IMAGE GALLERY RTL
+   ========================================================= */
+
+[dir="rtl"] .gallery-item {
+    text-align: right;
+}
+
+[dir="rtl"] .gallery-caption {
+    text-align: right;
+}
+
+/* =========================================================
+   47. CODE BLOCK RTL
+   ========================================================= */
+
+[dir="rtl"] pre,
+[dir="rtl"] code {
+    direction: ltr;
+    text-align: left;
+}
+
+/* =========================================================
+   48. BLOCKQUOTE RTL
+   ========================================================= */
+
+[dir="rtl"] blockquote {
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid currentColor;
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+/* =========================================================
+   49. DEFINITION LIST RTL
+   ========================================================= */
+
+[dir="rtl"] dl {
+    text-align: right;
+}
+
+[dir="rtl"] dt {
+    text-align: right;
+}
+
+[dir="rtl"] dd {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* =========================================================
+   50. FINAL RESET
+   ========================================================= */
+
+[dir="rtl"] * {
+    box-sizing: border-box;
+}
+
+[dir="rtl"] body.rtl,
+body[dir="rtl"] {
+    overflow-x: hidden;
+}

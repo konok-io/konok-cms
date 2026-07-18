@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <script>
-      (function(){try{
-        var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);var l=m?m[1]:'';
-        var rtl=['ar','ur','fa','he','ps','sd'];
-        if(rtl.indexOf(l)>=0){document.documentElement.setAttribute('dir','rtl');}
-      }catch(e){}})();
+      (function(){
+        try{
+          var m=document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/);
+          var l=m?m[1]:'';
+          var rtl=['ar','ur','fa','he','ps','sd'];
+          var isRtl=rtl.indexOf(l)>=0;
+          if(isRtl){
+            document.documentElement.setAttribute('dir','rtl');
+            document.documentElement.classList.add('rtl');
+          } else {
+            document.documentElement.classList.add('ltr');
+          }
+        }catch(e){}
+      })();
     </script>
 
     @php
@@ -63,96 +72,16 @@
           var ltr=document.getElementById('bs-ltr');
           if(ltr) ltr.href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css';
           document.documentElement.setAttribute('dir','rtl');
+          document.documentElement.classList.add('rtl');
+          // Enable RTL CSS
+          var rtlCss=document.getElementById('rtl-css');
+          if(rtlCss){rtlCss.disabled=false;}
+        } else {
+          document.documentElement.classList.add('ltr');
         }
       }catch(e){}})();
     </script>
     
-    <style>
-      /* RTL Styles for Corporate Theme */
-      [dir="rtl"] {
-        text-align: right;
-      }
-      [dir="rtl"] .top-bar-left {
-        text-align: right;
-      }
-      [dir="rtl"] .top-bar-right {
-        text-align: left;
-      }
-      [dir="rtl"] .gtranslate-wrap {
-        margin-left: 0;
-        margin-right: auto;
-      }
-      [dir="rtl"] .lang-menu {
-        right: auto;
-        left: 0;
-      }
-      [dir="rtl"] .ms-auto {
-        margin-left: 0 !important;
-        margin-right: auto;
-      }
-      [dir="rtl"] .me-auto {
-        margin-right: 0 !important;
-        margin-left: auto;
-      }
-      [dir="rtl"] .me-1, [dir="rtl"] .me-2, [dir="rtl"] .me-3, [dir="rtl"] .me-4, [dir="rtl"] .me-5 {
-        margin-right: 0 !important;
-      }
-      [dir="rtl"] .ms-1, [dir="rtl"] .ms-2, [dir="rtl"] .ms-3, [dir="rtl"] .ms-4, [dir="rtl"] .ms-5 {
-        margin-left: 0 !important;
-      }
-      [dir="rtl"] .pe-1, [dir="rtl"] .pe-2, [dir="rtl"] .pe-3, [dir="rtl"] .pe-4, [dir="rtl"] .pe-5 {
-        padding-right: 0 !important;
-      }
-      [dir="rtl"] .ps-1, [dir="rtl"] .ps-2, [dir="rtl"] .ps-3, [dir="rtl"] .ps-4, [dir="rtl"] .ps-5 {
-        padding-left: 0 !important;
-      }
-      [dir="rtl"] .hero-content {
-        text-align: right;
-      }
-      [dir="rtl"] .hero-badge {
-        flex-direction: row-reverse;
-      }
-      [dir="rtl"] .hero-buttons {
-        justify-content: flex-end;
-      }
-      [dir="rtl"] .section-title {
-        text-align: right;
-      }
-      [dir="rtl"] .about-content {
-        text-align: right;
-      }
-      [dir="rtl"] .about-features {
-        justify-content: flex-end;
-      }
-      [dir="rtl"] .feature-item {
-        flex-direction: row-reverse;
-      }
-      [dir="rtl"] .service-card-content {
-        text-align: right;
-      }
-      [dir="rtl"] .stat-item {
-        text-align: center;
-      }
-      [dir="rtl"] .team-social {
-        justify-content: flex-end;
-      }
-      [dir="rtl"] .testimonial-author {
-        flex-direction: row-reverse;
-      }
-      [dir="rtl"] .cta-content {
-        text-align: center;
-      }
-      [dir="rtl"] .footer-about, [dir="rtl"] .footer-links, [dir="rtl"] .footer-contact {
-        text-align: right;
-      }
-      [dir="rtl"] .footer-social a {
-        margin-left: 0;
-        margin-right: 8px;
-      }
-      [dir="rtl"] .copyright-text {
-        text-align: center;
-      }
-    </style>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -162,6 +91,9 @@
     
     <!-- Corporate Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/corporate.css') }}">
+    
+    <!-- RTL CSS (loaded after main CSS) -->
+    <link rel="stylesheet" href="{{ asset('assets/css/rtl.css') }}" id="rtl-css" disabled>
 
     <style>
         /* Hide Google Translate Bar */
@@ -510,8 +442,18 @@
         document.cookie = 'googtrans=' + val + ';path=/;domain=.' + host;
         if(rtl.indexOf(lang)>=0){
           document.documentElement.setAttribute('dir','rtl');
+          document.documentElement.classList.remove('ltr');
+          document.documentElement.classList.add('rtl');
+          // Enable RTL CSS
+          var rtlCss=document.getElementById('rtl-css');
+          if(rtlCss){rtlCss.disabled=false;}
         } else {
           document.documentElement.setAttribute('dir','ltr');
+          document.documentElement.classList.remove('rtl');
+          document.documentElement.classList.add('ltr');
+          // Disable RTL CSS
+          var rtlCss=document.getElementById('rtl-css');
+          if(rtlCss){rtlCss.disabled=true;}
         }
         if(lang === 'en'){
           document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
