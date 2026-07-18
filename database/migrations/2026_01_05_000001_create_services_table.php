@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable()->constrained('service_categories')->nullOnDelete();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('short_description')->nullable();
