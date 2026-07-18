@@ -61,8 +61,8 @@ class KonokCompanySeeder extends Seeder
         HeroSection::updateOrCreate(['title' => 'Transforming Ideas Into Digital Excellence'], [
             'subtitle' => 'Leading Technology Solutions Provider',
             'description' => 'We empower businesses through cutting-edge technology solutions.',
-            'button_text' => 'Explore Services',
-            'button_url' => '/services',
+            'primary_button_text' => 'Explore Services',
+            'primary_button_url' => '/services',
             'order' => 1,
             'is_active' => true,
         ]);
@@ -70,8 +70,8 @@ class KonokCompanySeeder extends Seeder
         HeroSection::updateOrCreate(['title' => 'Innovative Solutions for Tomorrow'], [
             'subtitle' => 'Your Digital Partner',
             'description' => 'From web development to AI integration, we cover everything.',
-            'button_text' => 'Contact Us',
-            'button_url' => '/contact',
+            'primary_button_text' => 'Contact Us',
+            'primary_button_url' => '/contact',
             'order' => 2,
             'is_active' => true,
         ]);
@@ -155,12 +155,12 @@ class KonokCompanySeeder extends Seeder
     private function seedIndustries()
     {
         $industries = [
-            ['name' => 'Healthcare', 'slug' => 'healthcare', 'icon' => 'fas fa-hospital'],
-            ['name' => 'E-commerce', 'slug' => 'e-commerce', 'icon' => 'fas fa-shopping-cart'],
-            ['name' => 'Finance', 'slug' => 'finance', 'icon' => 'fas fa-chart-line'],
-            ['name' => 'Education', 'slug' => 'education', 'icon' => 'fas fa-graduation-cap'],
-            ['name' => 'Manufacturing', 'slug' => 'manufacturing', 'icon' => 'fas fa-industry'],
-            ['name' => 'Real Estate', 'slug' => 'real-estate', 'icon' => 'fas fa-home'],
+            ['name' => 'Healthcare', 'slug' => 'healthcare', 'icon' => 'fas fa-hospital', 'description' => 'Technology solutions for healthcare providers.'],
+            ['name' => 'E-commerce', 'slug' => 'e-commerce', 'icon' => 'fas fa-shopping-cart', 'description' => 'Complete e-commerce solutions.'],
+            ['name' => 'Finance', 'slug' => 'finance', 'icon' => 'fas fa-chart-line', 'description' => 'Financial technology solutions.'],
+            ['name' => 'Education', 'slug' => 'education', 'icon' => 'fas fa-graduation-cap', 'description' => 'E-learning platforms and educational technology.'],
+            ['name' => 'Manufacturing', 'slug' => 'manufacturing', 'icon' => 'fas fa-industry', 'description' => 'Industrial automation solutions.'],
+            ['name' => 'Real Estate', 'slug' => 'real-estate', 'icon' => 'fas fa-home', 'description' => 'Property management technology.'],
         ];
 
         foreach ($industries as $index => $ind) {
@@ -171,17 +171,16 @@ class KonokCompanySeeder extends Seeder
     private function seedSolutions()
     {
         $solutions = [
-            ['name' => 'ERP System', 'slug' => 'erp-system', 'type' => 'ERP', 'icon' => 'fas fa-cogs'],
-            ['name' => 'POS System', 'slug' => 'pos-system', 'type' => 'POS', 'icon' => 'fas fa-credit-card'],
-            ['name' => 'CRM Solution', 'slug' => 'crm-solution', 'type' => 'CRM', 'icon' => 'fas fa-users'],
-            ['name' => 'HRM System', 'slug' => 'hrm-system', 'type' => 'HRM', 'icon' => 'fas fa-user-tie'],
-            ['name' => 'Accounting Software', 'slug' => 'accounting-software', 'type' => 'Accounting', 'icon' => 'fas fa-calculator'],
-            ['name' => 'Cloud Platform', 'slug' => 'cloud-platform', 'type' => 'Cloud', 'icon' => 'fas fa-cloud'],
+            ['name' => 'ERP System', 'slug' => 'erp-system', 'type' => 'ERP', 'icon' => 'fas fa-cogs', 'short_description' => 'Enterprise Resource Planning system.'],
+            ['name' => 'POS System', 'slug' => 'pos-system', 'type' => 'POS', 'icon' => 'fas fa-credit-card', 'short_description' => 'Point of Sale system.'],
+            ['name' => 'CRM Solution', 'slug' => 'crm-solution', 'type' => 'CRM', 'icon' => 'fas fa-users', 'short_description' => 'Customer Relationship Management.'],
+            ['name' => 'HRM System', 'slug' => 'hrm-system', 'type' => 'HRM', 'icon' => 'fas fa-user-tie', 'short_description' => 'Human Resource Management.'],
+            ['name' => 'Accounting Software', 'slug' => 'accounting-software', 'type' => 'Accounting', 'icon' => 'fas fa-calculator', 'short_description' => 'Accounting and financial management.'],
+            ['name' => 'Cloud Platform', 'slug' => 'cloud-platform', 'type' => 'Cloud', 'icon' => 'fas fa-cloud', 'short_description' => 'Scalable cloud infrastructure.'],
         ];
 
         foreach ($solutions as $index => $sol) {
             Solution::updateOrCreate(['slug' => $sol['slug']], array_merge($sol, [
-                'short_description' => $sol['name'] . ' for your business needs.',
                 'order' => $index + 1,
                 'is_featured' => $index < 3,
                 'is_active' => true,
@@ -198,7 +197,6 @@ class KonokCompanySeeder extends Seeder
             'challenge' => 'Legacy systems causing inefficiency.',
             'solution' => 'Implemented integrated hospital management system.',
             'results' => '40% reduction in administrative work.',
-            'order' => 1,
             'is_active' => true,
         ]);
 
@@ -209,7 +207,6 @@ class KonokCompanySeeder extends Seeder
             'challenge' => 'No online presence.',
             'solution' => 'Built complete e-commerce platform.',
             'results' => '200% increase in sales.',
-            'order' => 2,
             'is_active' => true,
         ]);
     }
