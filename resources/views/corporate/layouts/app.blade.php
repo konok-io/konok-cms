@@ -207,7 +207,11 @@
                             <div id="google_translate_element" style="display:none"></div>
                             <div class="lang-menu">
                                 <button type="button" onclick="pickLang('en')">English</button>
+                                <button type="button" onclick="pickLang('ar')">العربية</button>
                                 <button type="button" onclick="pickLang('bn')">বাংলা</button>
+                                <button type="button" onclick="pickLang('ur')">اردو</button>
+                                <button type="button" onclick="pickLang('hi')">हिन्दी</button>
+                                <button type="button" onclick="pickLang('tl')">Filipino</button>
                             </div>
                         </div>
                     </div>
@@ -397,7 +401,7 @@
     <!-- Google Translate -->
     <script type="text/javascript">
       function googleTranslateElementInit(){
-        new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,bn',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+        new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,ar,bn,ur,hi,tl',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
       }
       function pickLang(lang){
         document.body.classList.remove('gt-open');
