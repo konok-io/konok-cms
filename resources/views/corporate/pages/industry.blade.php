@@ -5,24 +5,59 @@
 @section('content')
 
 @if($industry->description)
-<!-- Page Header -->
-<section class="page-header" style="background: linear-gradient(135deg, var(--secondary-color), var(--dark-color)); padding: 120px 0 80px;">
+<!-- Hero Section with Image -->
+<section class="industry-hero-section" style="background: linear-gradient(135deg, var(--secondary-color), var(--dark-color)); padding: 120px 0 0;">
     <div class="container">
-        <div class="text-center text-white">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center mb-3">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('front.industries') }}" class="text-white-50">Industries</a></li>
-                    <li class="breadcrumb-item active text-white" aria-current="page">{!! $industry->name !!}</li>
-                </ol>
-            </nav>
-            <div class="industry-icon-large mb-3">
-                <i class="{{ $industry->icon ?? 'fas fa-industry' }}"></i>
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb justify-content-start mb-3">
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('front.industries') }}" class="text-white-50">Industries</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">{!! $industry->name !!}</li>
+                    </ol>
+                </nav>
+                <div class="industry-icon-large mb-3">
+                    <i class="{{ $industry->icon ?? 'fas fa-industry' }}"></i>
+                </div>
+                <h1 class="mb-3" style="color: white; font-size: 2.5rem; font-weight: 700;">{!! $industry->name !!}</h1>
             </div>
-            <h1 class="mb-3" style="color: white;">{!! $industry->name !!}</h1>
+            @if($industry->image)
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{{ $industry->image }}" alt="{{ $industry->name }}" class="img-fluid rounded-top" style="margin-top: 40px; box-shadow: 0 -20px 50px rgba(0,0,0,0.2);">
+            </div>
+            @endif
         </div>
     </div>
 </section>
+
+<!-- Solutions/Stats Section -->
+@php
+    $solutionsRaw = $industry->solutions;
+    if (is_string($solutionsRaw)) {
+        $solutionsRaw = json_decode($solutionsRaw, true) ?? [];
+    }
+    $solutions = $solutionsRaw ?: [];
+@endphp
+
+@if(count($solutions) > 0)
+<section class="industry-stats-section py-5" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+    <div class="container">
+        <div class="row g-4">
+            @foreach($solutions as $index => $stat)
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="text-center text-white">
+                    <div class="mb-2" style="font-size: 2rem;">
+                        <i class="{{ $stat['icon'] ?? 'fas fa-chart-line' }}"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">{{ $stat['title'] ?? '' }}</div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 
 <!-- Industry Detail Section -->
 <section class="industry-detail-section section-padding" style="background: #f8fafc;">
@@ -34,6 +69,23 @@
                         {!! $industry->description !!}
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="industry-cta-section py-5" style="background: white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 style="margin-bottom: 1rem;">Ready to transform your {!! $industry->name !!} business?</h3>
+                <p class="text-muted mb-0">Contact us today to discuss how we can help you achieve your goals.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate btn-lg">
+                    Get Started <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -76,6 +128,11 @@
 
 @push('styles')
 <style>
+    .industry-hero-section {
+        position: relative;
+        overflow: hidden;
+    }
+    
     .industry-icon-large {
         font-size: 3.5rem;
         margin-bottom: 1rem;
