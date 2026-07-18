@@ -4,6 +4,7 @@
 
 @section('content')
 
+@if($industry->description)
 <!-- Page Header -->
 <section class="page-header" style="background: linear-gradient(135deg, var(--secondary-color), var(--dark-color)); padding: 120px 0 80px;">
     <div class="container">
@@ -19,11 +20,6 @@
                 <i class="{{ $industry->icon ?? 'fas fa-industry' }}"></i>
             </div>
             <h1 class="mb-3" style="color: white;">{!! $industry->name !!}</h1>
-            <p class="lead" style="max-width: 600px; margin: 0 auto;">
-                @if($industry->description)
-                    {!! Str::limit(strip_tags($industry->description), 150) !!}
-                @endif
-            </p>
         </div>
     </div>
 </section>
@@ -33,13 +29,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                @if($industry->description)
                 <div class="industry-detail-card" style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
                     <div class="industry-description">
                         {!! $industry->description !!}
                     </div>
                 </div>
-                @endif
             </div>
         </div>
     </div>
@@ -111,6 +105,39 @@
     </div>
 </section>
 
+@else
+
+<!-- No Content State -->
+<section class="page-header" style="background: linear-gradient(135deg, var(--secondary-color), var(--dark-color)); padding: 120px 0 80px;">
+    <div class="container">
+        <div class="text-center text-white">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-3">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('front.industries') }}" class="text-white-50">Industries</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">{!! $industry->name !!}</li>
+                </ol>
+            </nav>
+            <h1 class="mb-3" style="color: white;">{!! $industry->name !!}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" style="background: #f8fafc; min-height: 50vh;">
+    <div class="container">
+        <div class="text-center py-5">
+            <i class="fas fa-clock" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+            <h4 style="color: #666;">Content Coming Soon</h4>
+            <p class="text-muted">This page is under development. Please check back later.</p>
+            <a href="{{ route('front.industries') }}" class="btn btn-primary mt-3">
+                <i class="fas fa-arrow-left me-2"></i>Back to Industries
+            </a>
+        </div>
+    </div>
+</section>
+
+@endif
+
 @endsection
 
 @push('styles')
@@ -169,11 +196,6 @@
         position: absolute;
         left: 0;
         color: var(--primary-color);
-    }
-    
-    .solution-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
     }
     
     .section-title {
