@@ -180,7 +180,7 @@
         <div class="admin-card">
             <div class="card-header-custom d-flex justify-content-between align-items-center">
                 <span><i class="fa-solid fa-newspaper me-2" style="color:#BF5AF2;"></i>Recent Blogs</span>
-                <a href="{{ route('admin.blogs.index') }}" class="btn btn-sm" style="background:#BF5AF2;color:#fff;">View All</a>
+                <a href="{{ route('admin.blog.index') }}" class="btn btn-sm" style="background:#BF5AF2;color:#fff;">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-admin mb-0">
