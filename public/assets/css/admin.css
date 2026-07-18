@@ -1,14 +1,15 @@
 /* =========================================================
    Portfolio CMS — Admin Panel Theme
+   Apple Light Mode with Dark Accents
    ========================================================= */
 :root {
-  --admin-primary: #2563EB;
-  --admin-primary-dark: #1d4ed8;
-  --admin-secondary: #0F172A;
-  --admin-accent: #F97316;
+  --admin-primary: #0A84FF;
+  --admin-primary-dark: #0066CC;
+  --admin-secondary: #1D1D1F;
+  --admin-accent: #BF5AF2;
   --admin-sidebar-width: 260px;
-  --admin-bg: #f1f5f9;
-  --admin-border: #e2e8f0;
+  --admin-bg: #F5F5F7;
+  --admin-border: #E5E5EA;
   --admin-radius: 12px;
 }
 
@@ -90,7 +91,7 @@ body.admin-body {
   color: #fff;
 }
 .admin-sidebar .nav-link.active {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(10, 132, 255, 0.15);
   color: #fff;
   border-left-color: var(--admin-primary);
 }
@@ -255,7 +256,7 @@ body.admin-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0F172A 0%, #1e293b 60%, #2563EB 130%);
+  background: linear-gradient(135deg, #0A84FF 0%, #BF5AF2 100%);
   padding: 2rem;
 }
 .admin-login-card {
@@ -264,7 +265,7 @@ body.admin-body {
   padding: 2.75rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+  box-shadow: 0 30px 70px rgba(10, 132, 255, 0.25);
 }
 
 @media (max-width: 991.98px) {
