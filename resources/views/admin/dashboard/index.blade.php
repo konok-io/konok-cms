@@ -15,7 +15,7 @@
 <div class="row g-3 mb-4">
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(37,99,235,0.1); color:#2563EB;"><i class="fa-solid fa-diagram-project"></i></div>
+            <div class="stat-icon" style="background: rgba(10,132,255,0.1); color:#0A84FF;"><i class="fa-solid fa-diagram-project"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['projects'] }}</div>
                 <div class="stat-label">Total Projects</div>
@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(249,115,22,0.1); color:#F97316;"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="stat-icon" style="background: rgba(191,90,242,0.1); color:#BF5AF2;"><i class="fa-solid fa-briefcase"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['services'] }}</div>
                 <div class="stat-label">Total Services</div>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(34,197,94,0.1); color:#16a34a;"><i class="fa-solid fa-chart-simple"></i></div>
+            <div class="stat-icon" style="background: rgba(48,209,88,0.1); color:#30D158;"><i class="fa-solid fa-chart-simple"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['skills'] }}</div>
                 <div class="stat-label">Total Skills</div>
@@ -42,7 +42,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(168,85,247,0.1); color:#9333ea;"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="stat-icon" style="background: rgba(255,159,10,0.1); color:#FF9F0A;"><i class="fa-solid fa-quote-left"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['testimonials'] }}</div>
                 <div class="stat-label">Total Testimonials</div>
@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(14,165,233,0.1); color:#0ea5e9;"><i class="fa-solid fa-newspaper"></i></div>
+            <div class="stat-icon" style="background: rgba(100,210,255,0.1); color:#64D2FF;"><i class="fa-solid fa-newspaper"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['blogs'] }}</div>
                 <div class="stat-label">Total Blogs</div>
@@ -60,16 +60,16 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(220,38,38,0.1); color:#dc2626;"><i class="fa-solid fa-envelope"></i></div>
+            <div class="stat-icon" style="background: rgba(255,69,58,0.1); color:#FF453A;"><i class="fa-solid fa-envelope"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['messages'] }}</div>
-                <div class="stat-label">Total Messages ({{ $stats['unread_messages'] }} unread)</div>
+                <div class="stat-label">Messages ({{ $stats['unread_messages'] }} unread)</div>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(37,99,235,0.1); color:#2563EB;"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-icon" style="background: rgba(10,132,255,0.1); color:#0A84FF;"><i class="fa-solid fa-users"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['visitors'] }}</div>
                 <div class="stat-label">Total Visitors</div>
@@ -78,7 +78,7 @@
     </div>
     <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon" style="background: rgba(249,115,22,0.1); color:#F97316;"><i class="fa-solid fa-eye"></i></div>
+            <div class="stat-icon" style="background: rgba(191,90,242,0.1); color:#BF5AF2;"><i class="fa-solid fa-eye"></i></div>
             <div>
                 <div class="stat-value">{{ $stats['visitors_today'] }}</div>
                 <div class="stat-label">Visitors Today</div>
@@ -274,8 +274,8 @@
             datasets: [{
                 label: 'Visitors',
                 data: {!! json_encode($visitorChart->pluck('total')) !!},
-                borderColor: '#2563EB',
-                backgroundColor: 'rgba(37,99,235,0.08)',
+                borderColor: '#0A84FF',
+                backgroundColor: 'rgba(10,132,255,0.08)',
                 fill: true,
                 tension: 0.35,
                 pointRadius: 3,
@@ -294,7 +294,7 @@
             labels: {!! json_encode($browserStats->pluck('browser')) !!},
             datasets: [{
                 data: {!! json_encode($browserStats->pluck('total')) !!},
-                backgroundColor: ['#2563EB', '#F97316', '#0F172A', '#16a34a', '#9333ea', '#0ea5e9'],
+                backgroundColor: ['#0A84FF', '#BF5AF2', '#FF375F', '#30D158', '#FF9F0A', '#64D2FF'],
             }]
         },
         options: {
