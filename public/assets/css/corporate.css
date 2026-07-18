@@ -239,7 +239,11 @@ img {
     color: var(--primary-color);
 }
 
-/* Dropdown Fix - Hover Gap Issue */
+/* Dropdown Fix - Remove Gap Between Nav Items */
+.corporate-header .navbar-nav {
+    gap: 0;
+}
+
 .corporate-header .nav-item.dropdown {
     position: static;
 }
@@ -269,7 +273,7 @@ img {
     top: 100%;
     left: 0;
     right: 0;
-    height: 20px;
+    height: 8px;
     background: transparent;
 }
 
