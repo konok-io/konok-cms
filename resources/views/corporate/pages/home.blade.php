@@ -76,7 +76,11 @@
                     </div>
                     
                     @php
-                        $features = $companyProfile->home_features ?? [
+                        $featuresRaw = $companyProfile->home_features;
+                        if (is_string($featuresRaw)) {
+                            $featuresRaw = json_decode($featuresRaw, true) ?? [];
+                        }
+                        $features = $featuresRaw ?: [
                             ['icon' => 'fas fa-headset', 'title' => '24/7 Support'],
                             ['icon' => 'fas fa-users-cog', 'title' => 'Expert Team'],
                             ['icon' => 'fas fa-award', 'title' => 'Quality Assured'],
