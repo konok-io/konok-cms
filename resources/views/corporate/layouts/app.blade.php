@@ -88,22 +88,46 @@
             border-color: var(--primary-color);
         }
         
-        /* Language Menu */
-        .lang-menu {
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            padding: 8px;
+        /* Language Menu - Admin Style */
+        .gtranslate-wrap {
+            position: relative;
+        }
+        
+        .gtranslate-wrap .lang-menu {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            z-index: 1050;
+            background: var(--light-color);
             border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 6px;
+            display: none;
+            box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.3);
+            min-width: 150px;
         }
         
-        .lang-menu .dropdown-item {
-            border-radius: 8px;
-            padding: 10px 14px;
+        body.gt-open .lang-menu {
+            display: block;
+        }
+        
+        .gtranslate-wrap .lang-menu button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: 0;
+            color: var(--gray-700);
             font-size: 0.9rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-fast);
         }
         
-        .lang-menu .dropdown-item:hover {
+        .gtranslate-wrap .lang-menu button:hover {
             background: var(--gray-100);
+            color: var(--primary-color);
         }
         
         /* Search Modal */
@@ -285,14 +309,15 @@
                         </button>
                         
                         <!-- Language Switcher -->
-                        <div class="dropdown">
-                            <button class="header-icon-btn" type="button" data-bs-toggle="dropdown" aria-label="Language">
+                        <div class="gtranslate-wrap">
+                            <button type="button" class="header-icon-btn" onclick="document.body.classList.toggle('gt-open')">
                                 <i class="fas fa-globe"></i>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end lang-menu" style="min-width: 150px;">
-                                <li><a class="dropdown-item" href="#" onclick="doGTranslate('en|en');return false;"><img src="//www.google.com/images/cleardot.png" alt="English" width="16" height="16" style="background:url(//www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_16x16_tt.png) no-repeat;background-size:16px;display:inline-block;margin-right:8px;">English</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="doGTranslate('en|bn');return false;"><img src="//www.google.com/images/cleardot.png" alt="Bengali" width="16" height="16" style="background:url(//www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_16x16_tt.png) no-repeat;background-size:16px;display:inline-block;margin-right:8px;">বাংলা</a></li>
-                            </ul>
+                            <div id="google_translate_element" style="display:none"></div>
+                            <div class="lang-menu">
+                                <button type="button" onclick="pickLang('en')">English</button>
+                                <button type="button" onclick="pickLang('bn')">বাংলা</button>
+                            </div>
                         </div>
                         
                         <a href="{{ route('front.contact') }}" class="btn btn-primary-corporate">Get Started</a>
@@ -366,30 +391,26 @@
         });
     </script>
 
-    <!-- Google Translate Widget -->
-    <div id="google_translate_element" style="display: none;"></div>
+    <!-- Google Translate -->
     <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,bn',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
+      function googleTranslateElementInit(){
+        new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,bn',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+      }
+      function pickLang(lang){
+        document.body.classList.remove('gt-open');
+        var host = location.hostname;
+        var val = '/en/' + lang;
+        document.cookie = 'googtrans=' + val + ';path=/';
+        document.cookie = 'googtrans=' + val + ';path=/;domain=' + host;
+        document.cookie = 'googtrans=' + val + ';path=/;domain=.' + host;
+        if(lang === 'en'){
+          document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          document.cookie = 'googtrans=;path=/;domain=' + host + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          document.cookie = 'googtrans=;path=/;domain=.' + host + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
         }
+        location.reload();
+      }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-    <!-- GTranslate Language Switcher -->
-    <script>
-        function doGTranslate(lang_pair) {
-            if(lang_pair.value) lang_pair = lang_pair.value;
-            var lang = lang_pair.split('|')[1];
-            var plang = location.hostname.indexOf(lang) != -1 ? lang : location.hostname.split('.')[0];
-            plang = 'en'; // Force English
-            location.href = 'https://' + location.hostname + '/?googtrans=' + lang_pair + '&lang=' + lang;
-            location.reload();
-        }
-    </script>
 </body>
 </html>
