@@ -59,64 +59,75 @@
    3. ADMIN PANEL RTL
    ========================================================= */
 
-/* Admin Wrapper */
+/* Admin Wrapper - Keep sidebar on left in RTL too for admin panel */
 [dir="rtl"] .admin-wrapper {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
-/* Admin Sidebar */
+/* Admin Sidebar - Keep on left in RTL for admin panel */
 [dir="rtl"] .admin-sidebar {
-    border-right: none;
-    border-left: 1px solid var(--admin-border);
-    left: auto;
-    right: 0;
-}
-
-[dir="rtl"] .admin-sidebar .nav-link {
-    flex-direction: row-reverse;
-    text-align: right;
-}
-
-[dir="rtl"] .admin-sidebar .nav-link i {
-    margin-left: 10px;
-    margin-right: 0;
-}
-
-[dir="rtl"] .admin-sidebar .nav-link.active {
-    border-left: none;
-    border-right: 3px solid var(--admin-primary);
-}
-
-[dir="rtl"] .admin-sidebar .nav-link .arrow {
-    transform: rotate(180deg);
-}
-
-[dir="rtl"] .admin-sidebar .nav-link .arrow.collapsed {
-    transform: rotate(0deg);
-}
-
-/* Admin Main Content */
-[dir="rtl"] .admin-content {
-    margin-right: 0;
-    margin-left: var(--admin-sidebar-width);
-}
-
-/* Admin Topbar */
-[dir="rtl"] .admin-topbar {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .admin-topbar .logo {
+    left: 0;
+    right: auto;
     border-left: none;
     border-right: 1px solid var(--admin-border);
 }
 
+[dir="rtl"] .admin-sidebar .nav-link {
+    flex-direction: row;
+    text-align: right;
+    border-left: 3px solid transparent;
+    border-right: none;
+}
+
+[dir="rtl"] .admin-sidebar .nav-link i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+[dir="rtl"] .admin-sidebar .nav-link.active {
+    border-right: none;
+    border-left: 3px solid var(--admin-primary);
+}
+
+/* Admin Main Content */
+[dir="rtl"] .admin-content {
+    margin-left: var(--admin-sidebar-width);
+    margin-right: 0;
+}
+
+/* Admin Topbar */
+[dir="rtl"] .admin-topbar {
+    flex-direction: row;
+}
+
+[dir="rtl"] .admin-topbar .logo {
+    border-right: none;
+    border-left: 1px solid var(--admin-border);
+}
+
 [dir="rtl"] .admin-topbar .nav {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 [dir="rtl"] .admin-topbar .dropdown-menu {
     text-align: right;
+}
+
+/* Admin Sidebar Toggle - Mobile */
+@media (max-width: 991.98px) {
+    [dir="rtl"] .admin-sidebar {
+        transform: translateX(-100%);
+        left: 0;
+        right: auto;
+    }
+    
+    [dir="rtl"] .admin-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    [dir="rtl"] .admin-content {
+        margin-left: 0;
+    }
 }
 
 /* =========================================================
