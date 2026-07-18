@@ -52,10 +52,6 @@ class KonokCompanySeeder extends Seeder
             'mission' => 'To empower businesses with cutting-edge technology solutions.',
             'founded_year' => '2015',
             'employees_count' => 50,
-            'address' => 'House 123, Road 45, Gulshan-2, Dhaka 1212, Bangladesh',
-            'phone' => '+880 1XXX-XXXXXX',
-            'email' => 'info@konok.io',
-            'website' => 'https://konok.io',
             'is_active' => true,
         ]);
     }
