@@ -10,7 +10,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         Setting::firstOrCreate(['id' => 1], [
-            'site_name' => 'Portfolio CMS',
+            'site_name' => 'KONOK',
             'email' => 'admin@example.com',
             'phone' => '+880 1234 567890',
             'address' => 'Dhaka, Bangladesh',
