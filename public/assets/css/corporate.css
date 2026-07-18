@@ -1,30 +1,32 @@
 /**
  * KONOK - Corporate Website Styles
- * Enterprise Corporate Design System
+ * Premium Professional Design System
  */
 
 /* ============================================
-   CSS Variables - Premium Color Palette
+   CSS Variables - Premium Professional Colors
    ============================================ */
 :root {
-    /* Primary Colors - Deep Teal & Forest */
-    --primary-color: #0D9488;
-    --primary-dark: #0F766E;
-    --primary-light: #14B8A6;
+    /* Primary Colors - Royal Blue */
+    --primary-color: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-light: #3B82F6;
     
-    /* Secondary Colors - Rich Slate */
-    --secondary-color: #1E293B;
-    --secondary-dark: #0F172A;
-    --secondary-light: #334155;
+    /* Secondary Colors - Deep Navy */
+    --secondary-color: #0F172A;
+    --secondary-dark: #020617;
+    --secondary-light: #1E293B;
     
-    /* Accent Colors - Warm Amber */
-    --accent-color: #F59E0B;
-    --accent-dark: #D97706;
-    --accent-light: #FBBF24;
+    /* Accent Colors - Emerald */
+    --accent-color: #10B981;
+    --accent-dark: #059669;
+    --accent-light: #34D399;
     
     /* Gradient Colors */
-    --gradient-start: #0D9488;
-    --gradient-end: #14B8A6;
+    --gradient-primary: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+    --gradient-accent: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #2563EB 100%);
     
     /* Neutral Colors */
     --dark-color: #0F172A;
@@ -41,10 +43,10 @@
     --light-color: #FFFFFF;
     
     /* Success & Status Colors */
-    --success-color: #22C55E;
+    --success-color: #10B981;
     --warning-color: #F59E0B;
     --danger-color: #EF4444;
-    --info-color: #0EA5E9;
+    --info-color: #06B6D4;
     
     /* Typography */
     --font-primary: 'Plus Jakarta Sans', sans-serif;
@@ -61,11 +63,14 @@
     --radius-xl: 16px;
     --radius-2xl: 24px;
     
-    /* Shadows */
+    /* Shadows - Enhanced */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-primary: 0 10px 40px -10px rgba(37, 99, 235, 0.4);
+    --shadow-accent: 0 10px 40px -10px rgba(16, 185, 129, 0.4);
     
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -300,25 +305,40 @@ img {
     color: var(--primary-color);
 }
 
-/* Primary Button - Corporate */
+/* Primary Button - Corporate Premium */
 .btn-primary-corporate {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: var(--gradient-primary);
     color: var(--light-color);
     border: none;
-    padding: 12px 28px;
+    padding: 14px 32px;
     border-radius: var(--radius-lg);
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 0.9375rem;
     transition: var(--transition-base);
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-corporate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
 }
 
 .btn-primary-corporate:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-    color: var(--light-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-primary), 0 15px 50px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary-corporate:hover::before {
+    left: 100%;
 }
 
 /* ============================================
@@ -328,7 +348,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+    background: var(--gradient-hero);
     position: relative;
     overflow: hidden;
 }
@@ -344,6 +364,23 @@ img {
     opacity: 0.5;
 }
 
+/* Animated particles */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -351,10 +388,12 @@ img {
 }
 
 .hero-content .hero-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 8px 20px;
+    padding: 10px 24px;
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -362,8 +401,12 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.hero-content .hero-badge i {
+    color: var(--accent-color);
+}
+
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 800;
     color: var(--light-color);
     margin-bottom: 24px;
@@ -1101,41 +1144,71 @@ img {
    Stats Section
    ============================================ */
 .stats-section {
-    background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
-    padding: 80px 0;
+    background: var(--gradient-dark);
+    padding: 100px 0;
+    position: relative;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .stat-item {
     text-align: center;
-    padding: 30px;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-item:last-child::after {
+    display: none;
 }
 
 .stat-icon {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-xl);
-    margin: 0 auto 20px;
-    font-size: 1.75rem;
-    color: var(--accent-color);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-2xl);
+    margin: 0 auto 24px;
+    font-size: 2rem;
+    color: var(--light-color);
+    box-shadow: var(--shadow-primary);
 }
 
 .stat-item .stat-number {
     font-family: var(--font-primary);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     color: var(--light-color);
     margin-bottom: 8px;
+    line-height: 1;
 }
 
 .stat-item .stat-label {
     font-size: 1rem;
     color: var(--gray-400);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 
 /* ============================================
