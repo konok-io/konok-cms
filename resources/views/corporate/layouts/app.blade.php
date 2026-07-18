@@ -85,9 +85,9 @@
             gap: 6px;
             font-size: 0.85rem;
             font-weight: 500;
-            color: rgba(255,255,255,0.8);
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--gray-700);
+            background: var(--bg-primary);
+            border: 1px solid var(--gray-200);
             border-radius: 20px;
             padding: 6px 12px;
             cursor: pointer;
@@ -95,9 +95,9 @@
         }
         
         .top-bar .gt-btn:hover {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            border-color: rgba(255,255,255,0.3);
+            background: var(--gray-100);
+            color: var(--gray-900);
+            border-color: var(--gray-300);
         }
         
         .top-bar .lang-menu {
