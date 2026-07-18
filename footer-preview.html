@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Preview - KONOK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #0ea5e9;
+            --accent-color: #06b6d4;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition-base: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .preview-header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .preview-header h1 {
+            margin: 0;
+            color: #1e293b;
+            font-size: 1.5rem;
+        }
+
+        .preview-header p {
+            margin: 5px 0 0;
+            color: #64748b;
+        }
+
+        /* Footer Styles */
+        .corporate-footer {
+            background: var(--dark-color);
+            color: var(--gray-400);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-color), #818cf8);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-section h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-section p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            position: relative;
+        }
+
+        .newsletter-form .input-group {
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .newsletter-form .form-control {
+            border: none;
+            padding: 14px 24px;
+            font-size: 0.95rem;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .newsletter-form .form-control:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .newsletter-form .btn-subscribe {
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 0 50px 50px 0;
+            transition: var(--transition-base);
+        }
+
+        .newsletter-form .btn-subscribe:hover {
+            background: #1e293b;
+            transform: translateX(2px);
+        }
+
+        /* Main Footer */
+        .footer-main {
+            padding: 70px 0 50px;
+            background: var(--dark-color);
+        }
+
+        /* Equal Height Columns */
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 280px;
+        }
+
+        .footer-column-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-about {
+            flex: 1;
+        }
+
+        .footer-about .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-brand-text {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .footer-about p {
+            color: var(--gray-400);
+            line-height: 1.7;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Social Icons */
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            color: var(--gray-300);
+            border-radius: 50%;
+            transition: var(--transition-base);
+            font-size: 0.95rem;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Titles */
+        .footer-main h5 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-main h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links li a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links li a i {
+            font-size: 0.7rem;
+            color: var(--primary-color);
+            transition: var(--transition-fast);
+        }
+
+        .footer-links li a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        .footer-links li a:hover i {
+            color: var(--secondary-color);
+            transform: translateX(2px);
+        }
+
+        /* Contact Info */
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .footer-contact .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .footer-contact .contact-icon i {
+            font-size: 0.9rem;
+        }
+
+        .footer-contact .contact-text {
+            flex: 1;
+        }
+
+        .footer-contact .contact-text span {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: block;
+        }
+
+        .footer-contact .contact-text .label {
+            color: var(--gray-500);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        /* Footer Divider */
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            margin: 0;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .footer-copyright a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer-copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-legal {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 991.98px) {
+            .newsletter-section .text-end {
+                text-align: left !important;
+                margin-top: 20px;
+            }
+            
+            .footer-column {
+                min-height: auto;
+                margin-bottom: 30px;
+            }
+            
+            .footer-about {
+                margin-bottom: 10px;
+            }
+            
+            .footer-social {
+                margin-top: 20px;
+            }
+            
+            .footer-legal {
+                justify-content: flex-start;
+                margin-top: 16px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .newsletter-section {
+                padding: 40px 0;
+            }
+            
+            .newsletter-form .btn-subscribe {
+                padding: 14px 20px;
+            }
+            
+            .footer-main {
+                padding: 50px 0 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preview-header">
+        <h1>Footer Preview - KONOK CMS</h1>
+        <p>Corporate Theme Footer Design - Equal Height Columns</p>
+    </div>
+
+    <!-- Footer Start -->
+    <footer class="corporate-footer">
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <div class="container">
+                <div class="row align-items-center newsletter-content">
+                    <div class="col-lg-5">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <p>Get the latest updates, news and insights delivered to your inbox.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn btn-subscribe">
+                                    <i class="fas fa-paper-plane me-2"></i>Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Footer -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Company Info -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-column">
+                            <div class="footer-column-content footer-about">
+                                <div class="footer-brand">
+                                    <div class="footer-brand-icon">K</div>
+                                    <span class="footer-brand-text">KONOK</span>
+                                </div>
+                                <p>KEY OF NEXT ONLINE KNOWLEDGE. Empowering businesses through innovative technology solutions and digital transformation services.</p>
+                                <div class="footer-social">
+                                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-column">
+                            <div class="footer-column-content">
+                                <h5>Quick Links</h5>
+                                <ul class="footer-links">
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Services</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Solutions</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Projects</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Careers</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Services -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-column">
+                            <div class="footer-column-content">
+                                <h5>Services</h5>
+                                <ul class="footer-links">
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Web Development</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Mobile Apps</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Cloud Solutions</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>AI Integration</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Cyber Security</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right"></i>Data Analytics</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-column">
+                            <div class="footer-column-content">
+                                <h5>Contact Us</h5>
+                                <div class="footer-contact">
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="contact-text">
+                                            <span class="label">Address</span>
+                                            <span>House 123, Road 45, Gulshan-2, Dhaka 1212, Bangladesh</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="contact-text">
+                                            <span class="label">Phone</span>
+                                            <span>+880 1700-000000</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-text">
+                                            <span class="label">Email</span>
+                                            <span>info@konok.io</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        © 2026 <a href="#">KONOK</a>. All rights reserved.
+                    </p>
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+</body>
+</html>

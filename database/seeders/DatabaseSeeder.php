@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             ContactMessageSeeder::class,
             VisitorSeeder::class,
+            KnowledgeSeeder::class, // Knowledge Base
+            SubscriberSeeder::class, // Newsletter Subscribers
         ]);
     }
 }

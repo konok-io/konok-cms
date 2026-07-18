@@ -83,14 +83,13 @@ class CorporateHomeController extends Controller
     {
         $siteSetting = Setting::first();
         
-        $categories = ServiceCategory::active()->ordered()->with(['services' => function($q) {
-            $q->active();
-        }])->get();
-        
+        $category = null;
+        $categories = ServiceCategory::active()->ordered()->get();
         $services = Service::active()->ordered()->get();
         
         return view('corporate.pages.services', compact(
             'siteSetting',
+            'category',
             'categories',
             'services'
         ));
@@ -143,10 +142,12 @@ class CorporateHomeController extends Controller
     {
         $siteSetting = Setting::first();
         $industry = Industry::where('slug', $slug)->firstOrFail();
+        $solutions = Solution::active()->ordered()->limit(6)->get();
         
         return view('corporate.pages.industry', compact(
             'siteSetting',
-            'industry'
+            'industry',
+            'solutions'
         ));
     }
 
