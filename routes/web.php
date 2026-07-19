@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Premium Theme Home (New Design)
-Route::get('/', [PremiumHomeController::class, 'index'])->name('home');
+Route::get('/', [PremiumHomeController::class, 'index'])->name('front.home');
 Route::get('/premium', [PremiumHomeController::class, 'index'])->name('premium.home');
 
 // Corporate Pages
