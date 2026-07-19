@@ -90,7 +90,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Corporate Theme CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/corporate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/konok.css') }}">
     
     <!-- RTL CSS (loaded after main CSS) -->
     <link rel="stylesheet" href="{{ asset('assets/css/rtl.css') }}" id="rtl-css" disabled>
@@ -401,7 +401,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.5/sweetalert2.all.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{ asset('assets/js/corporate.js') }}"></script>
+    <script src="{{ asset('assets/js/konok.js') }}"></script>
 
     @if(session('success'))
         <script>
@@ -424,6 +424,50 @@
             easing: 'ease-out',
             once: true,
             offset: 100
+        });
+        
+        // Counter Animation
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-count'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(target * easeOut);
+
+                el.textContent = current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target + suffix;
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Intersection Observer for counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('counted')) {
+                            counter.classList.add('counted');
+                            animateCounter(counter);
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-grid, .stats-section').forEach(el => {
+            counterObserver.observe(el);
         });
     </script>
 
