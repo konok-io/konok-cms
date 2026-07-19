@@ -21,16 +21,19 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\CorporateHomeController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProjectController;
+use App\Http\Controllers\Premium\PremiumHomeController;
 use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Front-End (Public) Routes - Corporate Theme
+| Front-End (Public) Routes - Premium Theme
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [CorporateHomeController::class, 'index'])->name('home');
+// Premium Theme Home (New Design)
+Route::get('/', [PremiumHomeController::class, 'index'])->name('home');
+Route::get('/premium', [PremiumHomeController::class, 'index'])->name('premium.home');
 
 // Corporate Pages
 Route::get('/about', [CorporateHomeController::class, 'about'])->name('front.about');
